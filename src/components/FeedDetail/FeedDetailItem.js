@@ -51,6 +51,7 @@ margin: 2vh 0;
 `;
 const Img = styled.img`
 width: 100%;
+border-radius: 5px;
 `;
 const User = styled.div`
 align-items: center;

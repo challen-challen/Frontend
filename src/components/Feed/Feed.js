@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import NavBar from "./NavBar";
 import FeedList from "./FeedList";
+import PostingButton from "./PostingButton";
 
 function Feed({match}) {
     const [sort, setSort] = useState('recent')
@@ -12,26 +13,29 @@ function Feed({match}) {
     const category = match.params.category;
 
     return (
+        <div>
+        <NavBar/>
         <FeedContainer>
-            <NavBar/>
             <Line/>
             <SortSelect value={sort} onChange={e => onChangeSort(e)}>
                 <option value="recent">최신순</option>
                 <option value="hot">인기순</option>
             </SortSelect>
             <FeedList category={category}/>
+            <PostingButton />
         </FeedContainer>
+        </div>
     );
 }
 
 const FeedContainer = styled.div`
 margin: 0 auto;
-width: 90%;
+width: 100%;
 display: flex;
 flex-direction: column;
 `;
 const SortSelect = styled.select`
-margin: 1vh 0 1vh auto;
+margin: 1vh 4vw 1vh auto;
  width: 80px;
   height:20px;
   font-size:0.8rem;

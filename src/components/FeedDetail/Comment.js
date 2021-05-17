@@ -48,6 +48,7 @@ width: 100%;
 margin-top: 1vh;
 border: 1px solid gray;
 resize: none;
+background-color: white;
 `;
 const Button = styled.input`
   font-size: 1rem;

@@ -12,14 +12,16 @@ function FeedDetail() {
         <DetailContainer>
             <NavBar/>
             <Line/>
+            <div style={{width: '92%', margin:'0 auto'}} >
             <FeedDetailItem id={data.id} name={data.name} image={data.image} like={data.like} date={data.date} title={data.title} content={data.content} ranking={data.ranking}/>
             <Comment />
+            </div>
         </DetailContainer>
     );
 }
 
 const DetailContainer = styled.div`
-width: 90%;
+width: 100%;
 margin: 0 auto;
 `;
 const Line = styled.div`

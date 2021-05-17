@@ -44,6 +44,8 @@ font-weight: bold;
 `;
 const Img = styled.img`
 width: 100%;
+border-radius: 5px;
+margin-bottom: 1vh;
 `;
 const InfoContainer = styled.div`
 margin: 1vh 1vw;
