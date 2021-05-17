@@ -1,0 +1,307 @@
+p{
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    list-style: none;
+  }
+
+/*현황 화면*/
+.MainPage_Current{
+    margin-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid;
+}
+.MainPage_Current_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MainPage_Current_title p{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+   font-weight: 600;
+}
+
+.MainPage_Current_title :last-child{
+    font-size: 20px;
+   font-weight: 600;
+}
+
+.MainPage_Current_boxes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.MainPage_Current_box{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 30%;
+    height: 130px;
+    border-radius: 10%;
+}
+.MainPage_Current_box p{
+    
+    margin:0px;
+    margin-top: 15px;
+    margin-left: 1vw;
+}
+
+.MainPage_Current_box p:first-child{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.MainPage_Current_box p:nth-child(2){
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.MainPage_Current_box p:last-child{
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*시직하가 화면*/
+
+.MainPage_Start{
+    margin-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid;
+}
+
+.MainPage_Start_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MainPage_Start_title p{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+   font-weight: 600;
+}
+
+.MainPage_Start_desc{
+    margin-top: 80px;
+}
+
+.MainPage_Start_desc p{
+    text-align: center;
+}
+
+.MainPage_Start_btn{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.MainPage_Start_btn p{
+    text-align: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.MainPage_Start_btn button{
+    margin-top: 60px;
+    text-align: center;
+    height: 30px;
+    border: none;
+    background-color: green;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+/*경고문 화면*/
+
+.MainPage_Info{
+    /* margin-top: 20px;*/
+    
+    border-bottom: 1px solid;
+}
+
+.MainPage_Info_title{
+    background-color: rgba(169, 169, 169, 0.1);
+    align-items: center;
+    border-bottom: 1px solid;
+}
+
+.MainPage_Info_title p{
+    text-align: center;
+}
+
+.MainPage_Info_title p:first-child{
+    padding-top: 20px;
+    text-align: center;
+}
+.MainPage_Info_title p:last-child{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.MainPage_Info_desc{
+    padding-top: 80px;
+    padding-bottom: 40px; 
+    background-image: url("infobg.png");
+}
+
+.MainPage_Info_desc p{
+    text-align: center;
+    
+}
+
+.MainPage_Info_desc_1{
+    font-size: 14px;
+}
+
+
+.MainPage_Info_desc_2{
+    margin-top: 80px;
+    font-size: 10px;
+}
+
+
+/*차트 화면*/
+.MainPage_Charts{
+    margin-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid;
+}
+
+
+.MainPage_Charts_title p{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+   font-weight: 600;
+}
+
+.MainPage_Charts_title p:last-child{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/*챌린지 부분*/
+.MainPage_Challenge{
+    margin-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid;
+}
+
+.MainPage_Challenge_title p{
+    text-align: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.MainPage_Challenge_desc_1{
+    text-align: center;
+    margin-top: 40px;
+    
+}
+
+.MainPage_Challenge_desc_1 ul li{
+    margin-top: 15px;
+    color: green;
+    font-weight: 900;
+}
+
+
+.MainPage_Challenge_desc_1 p:first-child{
+   text-align: center;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+   font-weight: 600;
+}
+
+
+.MainPage_Challenge_desc_2{
+    
+    margin-top: 40px;
+}
+.MainPage_Challenge_desc_2_cont{
+    margin-top: 20px;
+    display: flex;
+}
+
+.MainPage_Challenge_desc_2_title p:first-child{
+    text-align: center;
+   font-weight: 600;
+}
+
+.MainPage_Challenge_desc_2_title p:nth-child(2){
+    text-align: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+
+.MainPage_Challenge_desc_2_cont p{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.MainPage_Challenge_desc_2_cont p:first-child{
+    width: 80px;
+    border: 2px solid green;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.MainPage_Challenge_desc_2_cont p:nth-child(2){
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+.MainPage_Challenge_btn{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.MainPage_Challenge_btn button{
+    margin-top: 60px;
+    text-align: center;
+    height: 30px;
+    border: none;
+    background-color: rgb(0, 128, 0);
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: 800;
+}
