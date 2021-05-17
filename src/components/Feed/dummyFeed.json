@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "김챌린",
+      "ranking": "10",
+      "like": "5",
+      "image": "https://via.placeholder.com/150",
+      "date": "2021-05-07",
+      "title": "일회용컵 대신 텀블러 사용하기",
+      "content": "카페 갈때마다 텀블러 챙기는거 필수!! 텀블러를 이디야에서 사용하면 200원 할인해주는 거 아셨나요? 환경도 아끼고 할인도 받고!!",
+      "category": "resource"
+    },
+    {
+      "id": 2,
+      "name": "김챌린",
+      "ranking": "5",
+      "like": "5",
+      "image": "https://via.placeholder.com/150",
+      "date": "2021-05-07",
+      "title": "일회용컵 대신 텀블러 사용하기",
+      "content": "카페 갈때마다 텀블러 챙기는거 필수!! 텀블러를 이디야에서 사용하면 200원 할인해주는 거 아셨나요? 환경도 아끼고 할인도 받고!!",
+      "category": "resource"
+    },
+    {
+      "id": 3,
+      "name": "김챌린",
+      "ranking": "5",
+      "like": "5",
+      "image": "https://via.placeholder.com/150",
+      "date": "2021-05-07",
+      "title": "일회용컵 대신 텀블러 사용하기",
+      "content": "카페 갈때마다 텀블러 챙기는거 필수!! 텀블러를 이디야에서 사용하면 200원 할인해주는 거 아셨나요? 환경도 아끼고 할인도 받고!!",
+      "category": "resource"
+    },
+    {
+      "id": 4,
+      "name": "김챌린",
+      "ranking": "10",
+      "like": "5",
+      "image": "https://via.placeholder.com/150",
+      "date": "2021-05-07",
+      "title": "일회용컵 대신 텀블러 사용하기",
+      "content": "카페 갈때마다 텀블러 챙기는거 필수!! 텀블러를 이디야에서 사용하면 200원 할인해주는 거 아셨나요? 환경도 아끼고 할인도 받고!!",
+      "category": "resource"
+    },
+    {
+      "id": 5,
+      "name": "김챌린",
+      "ranking": "10",
+      "like": "5",
+      "image": "https://via.placeholder.com/150",
+      "date": "2021-05-07",
+      "title": "일회용컵 대신 텀블러 사용하기",
+      "content": "카페 갈때마다 텀블러 챙기는거 필수!! 텀블러를 이디야에서 사용하면 200원 할인해주는 거 아셨나요? 환경도 아끼고 할인도 받고!!",
+      "category": "resource"
+    }
+  ]
+}
