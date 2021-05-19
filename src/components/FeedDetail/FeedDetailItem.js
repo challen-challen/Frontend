@@ -55,7 +55,10 @@ border-radius: 5px;
 `;
 const User = styled.div`
 align-items: center;
-display: flex;`;
+display: flex;
+font-size: 1.3rem;
+`;
+
 
 const RightInfo = styled.div`
 display: flex;
