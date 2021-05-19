@@ -1,208 +1,214 @@
-p{
+p {
     margin: 0;
 }
 
-li{
+li {
     list-style: none;
 }
 
 ul {
     margin: 0;
     padding: 0;
-  }
-  
-  li {
+}
+
+li {
     list-style: none;
-  }
+}
 
 /*현황 화면*/
-.MainPage_Current{
+.MainPage_Current {
     margin-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
 }
-.MainPage_Current_title{
+
+.MainPage_Current_title {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.MainPage_Current_title p{
+.MainPage_Current_title p {
     display: flex;
     align-items: center;
     margin: 0;
     margin-left: 1vw;
     margin-right: 1vw;
-   font-weight: 600;
+    font-weight: 600;
 }
 
-.MainPage_Current_title :last-child{
+.MainPage_Current_title :last-child {
     font-size: 20px;
-   font-weight: 600;
+    font-weight: 600;
 }
 
-.MainPage_Current_boxes{
+.MainPage_Current_boxes {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
 }
 
-.MainPage_Current_box{
+.MainPage_Current_box {
     border: 2px solid rgba(0, 0, 0, 0.1);
     width: 30%;
     height: 130px;
     border-radius: 10%;
 }
-.MainPage_Current_box p{
-    
-    margin:0px;
+
+.MainPage_Current_box p {
+    margin: 0px;
     margin-top: 15px;
     margin-left: 1vw;
 }
 
-.MainPage_Current_box p:first-child{
+.MainPage_Current_box p:first-child {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.MainPage_Current_box p:nth-child(2){
+.MainPage_Current_box p:nth-child(2) {
     font-size: 25px;
     font-weight: 600;
 }
 
-.MainPage_Current_box p:last-child{
+.MainPage_Current_box p:last-child {
     font-size: 10px;
     color: rgba(0, 0, 0, 0.5);
 }
 
 
-
 /*시직하가 화면*/
 
-.MainPage_Start{
+.MainPage_Start {
     margin-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
 }
 
-.MainPage_Start_title{
+.MainPage_Start_title {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.MainPage_Start_title p{
+.MainPage_Start_title p {
     display: flex;
     align-items: center;
     margin: 0;
     margin-left: 1vw;
     margin-right: 1vw;
-   font-weight: 600;
+    font-weight: 600;
 }
 
-.MainPage_Start_desc{
+.MainPage_Start_desc {
     margin-top: 80px;
 }
 
-.MainPage_Start_desc p{
+.MainPage_Start_desc p {
     text-align: center;
 }
 
-.MainPage_Start_btn{
+.MainPage_Start_btn {
     text-align: center;
     margin-top: 80px;
 }
 
-.MainPage_Start_btn p{
+.MainPage_Start_btn p {
     text-align: center;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.MainPage_Start_btn button{
+.MainPage_Start_btn button {
     margin-top: 60px;
     text-align: center;
-    width: 200px;
+    width: 210px;
     height: 40px;
     border: none;
     background-color: #40804F;
     border-radius: 20px;
-    color:white;
-    font-size: 15px;
+    color: white;
+    font-size: 1rem;
     font-weight: 800;
 }
 
 
 /*경고문 화면*/
 
-.MainPage_Info{
+.MainPage_Info {
     /* margin-top: 20px;*/
-    
-    border-bottom: 1px solid;
 }
 
-.MainPage_Info_title{
-    background-color: rgba(169, 169, 169, 0.1);
+.MainPage_Info_title {
+    background-color: white;
     align-items: center;
     border-bottom: 1px solid;
 }
 
-.MainPage_Info_title p{
+.MainPage_Info_title p {
     text-align: center;
 }
 
-.MainPage_Info_title p:first-child{
+.MainPage_Info_title p:first-child {
     padding-top: 20px;
     text-align: center;
 }
-.MainPage_Info_title p:last-child{
+
+.MainPage_Info_title p:last-child {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.MainPage_Info_desc{
+.MainPage_Info_desc {
+    height: 200px;
     padding-top: 80px;
-    padding-bottom: 40px; 
-    background-image: url("infobg.png");
+    padding-bottom: 40px;
+    background-image: url("air-pollution.jpg");
 }
 
-.MainPage_Info_desc p{
+.MainPage_Info_desc p {
     text-align: center;
-    
+    vertical-align: middle;
+    height: 30px;
+    margin: auto 0;
 }
 
-.MainPage_Info_desc_1{
+.MainPage_Info_desc_1 {
     font-size: 14px;
+    color: white;
+    line-height: 30px;
+    font-weight: bold;
+    font-family: 'Nanum Gothic Coding', sans-serif;
+
 }
 
 
-.MainPage_Info_desc_2{
+.MainPage_Info_desc_2 {
     margin-top: 80px;
     font-size: 10px;
+    color: white;
 }
 
 
 /*차트 화면*/
-.MainPage_Charts{
+.MainPage_Charts {
     margin-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
 }
 
 
-.MainPage_Charts_title p{
+.MainPage_Charts_title {
     display: flex;
     align-items: center;
-    margin: 0;
-    margin-left: 1vw;
-    margin-right: 1vw;
-   font-weight: 600;
+    margin: 30px 1vw 0 1vw;
+    font-weight: 600;
 }
 
-.MainPage_Charts_title p:last-child{
+.MainPage_Charts_title p:last-child {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 12px;
@@ -210,100 +216,109 @@ ul {
 }
 
 
-
-
 /*챌린지 부분*/
-.MainPage_Challenge{
-    margin-top: 20px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid;
+.MainPage_Challenge {
+    margin-top: 5vh;
+    padding-bottom: 5vh;
 }
 
-.MainPage_Challenge_title p{
+.MainPage_Challenge_title p {
     text-align: center;
-    font-size: 12px;
+    font-size: 0.8rem;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.MainPage_Challenge_desc_1{
-    text-align: center;
-    margin-top: 40px;
-    
+.MainPage_Challenge_desc_1 {
+    width: 100%;
+    margin: 5vh auto 0 auto;
 }
 
-.MainPage_Challenge_desc_1 ul li{
-    margin-top: 15px;
-    color:    #40804F;
+.MainPage_Challenge_desc_1 ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    row-gap: 2.5vh;
+    width: 60%;
+}
+
+.MainPage_Challenge_desc_1 li {
+    color: #575757;
     font-weight: 900;
+    display: flex;
+    align-items:center;
+    margin: 0 auto;
+    width: 130px;
 }
 
 
-.MainPage_Challenge_desc_1 p:first-child{
-   text-align: center;
-    margin: 0;
-    margin-left: 1vw;
-    margin-right: 1vw;
-   font-weight: 600;
+.MainPage_Challenge_desc_1 p:first-child {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 2.5vh;
 }
 
 
-.MainPage_Challenge_desc_2{
-    
+.MainPage_Challenge_desc_2 {
     margin-top: 40px;
 }
-.MainPage_Challenge_desc_2_cont{
-    margin-top: 20px;
+
+.MainPage_Challenge_desc_2_cont {
     display: flex;
+    margin-top: 2.5vh;
+  justify-content: center;
 }
 
-.MainPage_Challenge_desc_2_title p:first-child{
+.MainPage_Challenge_desc_2_title p:first-child {
     text-align: center;
-   font-weight: 600;
+    font-weight: 600;
 }
 
-.MainPage_Challenge_desc_2_title p:nth-child(2){
+.MainPage_Challenge_desc_2_title p:nth-child(2) {
     text-align: center;
-    font-size: 12px;
+    font-size: 0.8rem;
     color: rgba(0, 0, 0, 0.5);
     margin-top: 10px;
 }
 
-.MainPage_Challenge_desc_2_cont p{
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.5);
+.MainPage_Challenge_desc_2_cont p {
+    font-size: 0.8rem;
     text-align: center;
+    margin-left: 1vw;
+    padding: 0.5vh 0;
 }
 
-.MainPage_Challenge_desc_2_cont p:first-child{
-    width: 80px;
-    border: 2px solid #40804F;
-    border-radius: 10px;
-    margin-left: 10px;
+.MainPage_Challenge_desc_2_cont p:first-child {
+    width: 70px;
+    border-radius: 20px;
+    padding: 5px 1px;
+    color: white;
+    font-weight:600;
+    background-color: rgba(64,128,79,0.5);
 }
 
-.MainPage_Challenge_desc_2_cont p:nth-child(2){
-    font-size: 16px;
+.MainPage_Challenge_desc_2_cont p:nth-child(2) {
+    font-size: 1rem;
     color: rgba(0, 0, 0, 1);
     text-align: center;
     font-weight: 600;
     margin-top: 10px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-.MainPage_Challenge_btn{
+.MainPage_Challenge_btn {
     text-align: center;
     margin-top: 10px;
 }
 
-.MainPage_Challenge_btn button{
-    margin-top: 60px;
+.MainPage_Challenge_btn button {
+    margin-top: 5vh;
     text-align: center;
-    width: 200px;
+    width: 220px;
     height: 40px;
     border: none;
     background-color: #40804F;
     border-radius: 20px;
     color: aliceblue;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 800;
 }
