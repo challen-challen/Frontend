@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 function MainPage_Start() {
     return (
@@ -13,7 +14,9 @@ function MainPage_Start() {
             </div>
             <div className="MainPage_Start_btn">
                 <p>생활 속 작은 챌린지로 세상을 바꿔볼까요?</p>
-                <button>챌린지 바로 참여하기</button>
+                <Link to="/challenge/all">
+                    <button>챌린지 바로 참여하기</button>
+                </Link>
             </div>
         </div>
     )

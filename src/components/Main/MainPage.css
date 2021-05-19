@@ -123,11 +123,12 @@ ul {
 .MainPage_Start_btn button{
     margin-top: 60px;
     text-align: center;
-    height: 30px;
+    width: 200px;
+    height: 40px;
     border: none;
-    background-color: green;
+    background-color: #40804F;
     border-radius: 20px;
-    color: aliceblue;
+    color:white;
     font-size: 15px;
     font-weight: 800;
 }
@@ -232,7 +233,7 @@ ul {
 
 .MainPage_Challenge_desc_1 ul li{
     margin-top: 15px;
-    color: green;
+    color:    #40804F;
     font-weight: 900;
 }
 
@@ -275,7 +276,7 @@ ul {
 
 .MainPage_Challenge_desc_2_cont p:first-child{
     width: 80px;
-    border: 2px solid green;
+    border: 2px solid #40804F;
     border-radius: 10px;
     margin-left: 10px;
 }
@@ -297,9 +298,10 @@ ul {
 .MainPage_Challenge_btn button{
     margin-top: 60px;
     text-align: center;
-    height: 30px;
+    width: 200px;
+    height: 40px;
     border: none;
-    background-color: rgb(0, 128, 0);
+    background-color: #40804F;
     border-radius: 20px;
     color: aliceblue;
     font-size: 15px;

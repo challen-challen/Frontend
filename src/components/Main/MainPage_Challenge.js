@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import {Link} from "react-router-dom";
 
 function MainPage_Challenge() {
     return (
@@ -37,7 +38,7 @@ function MainPage_Challenge() {
                     </div>
                 </div>
                 <div className="MainPage_Challenge_btn">
-                    <button>공유된 챌린지 보러 가기</button>
+                    <Link to="/challenge/all"><button>공유된 챌린지 보러 가기</button></Link>
                 </div>
 
             </div>
