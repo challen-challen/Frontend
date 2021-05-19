@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal } from '@fortawesome/free-solid-svg-icons';
+import Badge from "./Badge";
 function MyPage() {
     return (
         <div className="MyPage">
@@ -16,6 +17,7 @@ function MyPage() {
                     </div>
                 </div>
             </div>
+            <Badge />
             <div className="MyPage_UserFeed" >
                 <div className="MyPage_UserFeed_title">
                     <p>나의 피드</p>
