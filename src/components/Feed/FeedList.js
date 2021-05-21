@@ -1,15 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components'
-import dummy from './dummyFeed.json'
 import FeedItem from "./FeedItem";
 
-function FeedList({category}) {
-    const {data}= dummy
+function FeedList({category, post}) {
 
     return (
         <FeedListWrapper>
-            {data.map(({image,name, like,id, title, ranking})=>
-                <FeedItem image={image} name={name} like={like} key={id} title={title} id={id} category={category} ranking={ranking}/>
+            {post.map(({writer,fileUrl ,likes ,_id ,title})=>
+                <FeedItem image={fileUrl} writer={writer.nickname} likes={likes} key={_id} title={title}  category={category} _id={_id}/>
             )}
         </FeedListWrapper>
     );

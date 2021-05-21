@@ -2,23 +2,20 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {ImEarth} from "react-icons/im"
-import {setMedal} from '../util/setMedal'
-import {FaMedal} from "react-icons/fa";
 
-function FeedItem({image, name, like,title,id, category, ranking}) {
-    const color = setMedal(ranking);
+function FeedItem({writer,fileUrl ,likes ,_id ,title,category}) {
+
     return (
         <ItemContainer>
-            <Img src={image} alt={image}/>
-            <Title to={`/challenge/${category}/${id}`}>{title}</Title>
+            <Img src="https://via.placeholder.com/150" alt={fileUrl}/>
+            <Title to={`/challenge/${category}/${_id}`}>{title}</Title>
             <InfoContainer>
                 <Wrapper>
-                    <div>{name}</div>
-                    <FaMedal size={20} color={color} style={{marginLeft: '1.5vw'}}/>
+                    <div>{writer}</div>
                 </Wrapper>
                 <Wrapper>
                     <ImEarth size={20} style={{marginRight:'1.5vw'}}/>
-                    <div>{like}</div>
+                    <div>{likes}</div>
                 </Wrapper>
             </InfoContainer>
 

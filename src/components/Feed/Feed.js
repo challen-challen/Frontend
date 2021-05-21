@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import {MdErrorOutline} from 'react-icons/md';
 import NavBar from "./NavBar";
 import FeedList from "./FeedList";
 import PostingButton from "./PostingButton";
 import DescriptionModal from "./modal/DescriptionModal";
+import axios from "axios";
+
 
 function Feed({match}) {
-    const [sort, setSort] = useState('recent')
+    const [post, setPost] = useState([])
+    const [sort, setSort] = useState('latest')
     const [isOpen, setIsOpen] = useState(false);
 
     const onChangeSort = (e) => {
@@ -16,6 +19,15 @@ function Feed({match}) {
     }
     const category = match.params.category;
 
+    useEffect(() => {
+        axios.get(`http://localhost:5000/api/challen/posts?category=${category}&sort=${sort}`).then(
+            response =>{
+                console.log(response);
+                setPost(response.data.posts)
+            }
+        ).then(error => error)
+    }, [category, sort])
+    console.log(post)
 
     const openModal = () => {
         setIsOpen(true);
@@ -32,12 +44,12 @@ function Feed({match}) {
             <TopWrapper>
             <MdErrorOutline size={30} color='#40804F' style={{cursor:'pointer'}} onClick={openModal}/>
             <SortSelect value={sort} onChange={e => onChangeSort(e)}>
-                <option value="recent">최신순</option>
-                <option value="hot">인기순</option>
+                <option value="latest">최신순</option>
+                <option value="likes">인기순</option>
             </SortSelect>
             </TopWrapper>
             {isOpen? <DescriptionModal closeModal={closeModal} />:''}
-            <FeedList category={category}/>
+            <FeedList category={category} post={post}/>
             <PostingButton />
         </FeedContainer>
         </div>
