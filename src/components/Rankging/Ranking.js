@@ -7,22 +7,21 @@ import ranking3 from '../util/image/ranking3.png'
 import rankingdummy from './rankingdata.json';
 
 function Ranking() {
-    const [sort, setSort] = useState('month')
-    const onChangeSort = (e) => {
-        setSort(e.target.value)
+    const [sortMonth, setSortMonth] = useState('all')
+    const [sortDaily, setSortDaily] = useState('all')
+    const onChangeSortMonth = (e) => {
+        setSortMonth(e.target.value)
+        console.log(e.target.value)
+    }
+    const onChangeSortDaily = (e) => {
+        setSortDaily(e.target.value)
         console.log(e.target.value)
     }
     const {data} = rankingdummy
 
     return (
         <Container>
-            <TitleWrapper>
-            <Title>챌린지 랭킹</Title>
-            <SortSelect value={sort} onChange={e => onChangeSort(e)}>
-                <option value="month">월간랭킹</option>
-                <option value="day">일간랭킹</option>
-            </SortSelect>
-            </TitleWrapper>
+            <Title>종합 챌린지 랭킹</Title>
             <Top3Wrapper>
                 <RankingItem>
                     <img src={ranking2} alt="ranking2" style={{width: '80px'}}/>
@@ -40,11 +39,34 @@ function Ranking() {
                     <Like>{data[1].like}개</Like>
                 </RankingItem>
             </Top3Wrapper>
-            <Title>TOP 20</Title>
-            <Desc>좋아요를 많이 받은 회원님입니다.</Desc>
-            {data.map(({id, like},index)=>
+            <TitleWrapper>
+                <Title>월간 랭킹</Title>
+                <SortSelect value={sortMonth} onChange={e => onChangeSortMonth(e)}>
+                <option value="all">전체</option>
+                <option value="electricity">전기부문</option>
+                    <option value="traffic">교통부문</option>
+                    <option value="airconditioning">냉난방부문</option>
+                    <option value="resource">자원부문</option>
+            </SortSelect>
+            </TitleWrapper>
+            <Desc>이번 달 좋아요를 많이 받은 회원님입니다.</Desc>
+            {data.map(({id, like}, index) =>
                 <RankingList index={index} id={id} like={like} key={id}/>
-                )}
+            )}
+            <TitleWrapper>
+            <Title>일간 랭킹</Title>
+            <SortSelect value={sortDaily} onChange={e => onChangeSortDaily(e)}>
+                <option value="all">전체</option>
+                <option value="electricity">전기부문</option>
+                <option value="traffic">교통부문</option>
+                <option value="airconditioning">냉난방부문</option>
+                <option value="resource">자원부문</option>
+            </SortSelect>
+        </TitleWrapper>
+            <Desc>오늘 좋아요를 많이 받은 회원님입니다.</Desc>
+            {data.map(({id, like}, index) =>
+                <RankingList index={index} id={id} like={like} key={id}/>
+            )}
         </Container>
     );
 }
@@ -74,7 +96,8 @@ margin: 2vh auto;
 width: 95%;
 font-size: 1.3rem;
 `;
-const Desc= styled.div`
+
+const Desc = styled.div`
 font-weight: bold;
 margin: 2vh auto;
 width: 95%;

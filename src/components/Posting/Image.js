@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import {FcOpenedFolder} from "react-icons/fc";
-import {AiFillCloseCircle, AiOutlineConsoleSql} from "react-icons/ai";
+
+import {AiFillCloseCircle} from "react-icons/ai";
 import {MdWallpaper} from "react-icons/md";
 
 function Image({postContent, setPostContent}) {
@@ -16,6 +16,7 @@ function Image({postContent, setPostContent}) {
             reader.onload = function (e) {
                 setImage(e.target.result);
                 setIsUploaded(true);
+
                 setPostContent({
                     ...postContent,
                     imageUrl: e.target.result
@@ -26,20 +27,7 @@ function Image({postContent, setPostContent}) {
         }
     }
 
-    // const onChangeContent=(e)=>{
-    //     let reader = new FileReader();
-      
-    //     reader.onload = function (e) {
-    //         const {name, result}=e.target;
-    //         setPostContent({
-    //             ...postContent,
-    //             [name]: result
-    //         })
-        
-    //     };
-    //     reader.readAsDataURL(e.target.files[0]);
 
-    //     }
     return (
         <Layout>
                     <div className="image-upload">
@@ -103,11 +91,11 @@ export const ImagePreview = styled.div`
     border-radius: 3px;
   }
   #close-icon {
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
-    right: 180px;
-    top: 1px;
+   position: relative;
+  cursor: pointer;
+  z-index: 2;
+  top: -165px;
+  right: -175px;
     opacity: .6;
     
     :hover {

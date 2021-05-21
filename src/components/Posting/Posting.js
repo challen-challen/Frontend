@@ -31,6 +31,7 @@ function Posting() {
 
      
         console.log(postContent)
+
     useEffect(()=>{
         const nowDate = new Date();
         setDate(moment(nowDate).format('YYYY-MM-DD'))

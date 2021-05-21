@@ -17,7 +17,10 @@ function FeedList({category}) {
 
 const FeedListWrapper=styled.div`
 display: grid;
+  @media (max-width: 769px) {
 grid-template-columns: repeat(auto-fill, minmax(38%, auto));
+  }
+grid-template-columns: repeat(auto-fill, minmax(30%, auto));
 }
 width: 100%;
 column-gap: 1vw;

@@ -13,7 +13,7 @@ function MainPage_Start() {
                 <p>환경 챌린지 입니다.</p>
             </div>
             <div className="MainPage_Start_btn">
-                <p>생활 속 작은 챌린지로<br /> 세상을 바꿔볼까요?</p>
+                <p>생활 속 작은 챌린지로 세상을 바꿔볼까요?</p>
                 <Link to="/challenge/all">
                     <button>챌린지 바로 참여하기</button>
                 </Link>
