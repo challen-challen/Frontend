@@ -1,106 +1,75 @@
-import React, {useState} from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import Dropzone from "react-dropzone";
+import {AiOutlinePlus} from'react-icons/ai'
+import axios from "axios";
 
-import {AiFillCloseCircle} from "react-icons/ai";
-import {MdWallpaper} from "react-icons/md";
+function FileUpload() {
+    const [Images, setImages] = useState([]);
 
-function Image({postContent, setPostContent}) {
-    const [image, setImage] = useState("");
-    const [isUploaded, setIsUploaded] = useState(false);
+    const dropHandler = (files) => {
+        let formData = new FormData();
+        const config = {
+            header: { "content-type": "multipart/form-data" },
+        };
+        formData.append("file", files[0]);
 
-  
-    function handleImageChange(e) {
-        if (e.target.files && e.target.files[0]) {
-            let reader = new FileReader();
+        axios.post("/api/upload/image", formData, config).then((response) => {
+            if (response.data.success) {
+                console.log(response.data);
+                setImages([...Images, response.data.filePath]);
+            } else {
+                alert("파일을 저장하는데 실패했습니다.");
+            }
+        });
+    };
+    const deleteHandler = (image) => {
+        const currentIndex = Images.indexOf(image);
 
-            reader.onload = function (e) {
-                setImage(e.target.result);
-                setIsUploaded(true);
-
-                setPostContent({
-                    ...postContent,
-                    imageUrl: e.target.result
-                })
-            };
-
-            reader.readAsDataURL(e.target.files[0]);
-        }
-    }
-
-
+        let newImages = [...Images];
+        newImages.splice(currentIndex, 1);
+        setImages(newImages);
+    };
     return (
-        <Layout>
-                    <div className="image-upload">
-                        {isUploaded ? (
-                            <ImagePreview>
-                                <AiFillCloseCircle
-                                    size="30"
-                                    id="close-icon"
-                                    onClick={() => {
-                                        setIsUploaded(false);
-                                        setImage(null);
-                                    }}
-                                />
-                                <img id="uploaded-image" src={image} alt="uploaded-img"/>
-                            </ImagePreview>
-                        ) : (
-                            <BoxUpload>
-                                <ImageLabel htmlFor="upload-input" style={{ margin: 'auto auto' }}>
-                                    <MdWallpaper size="40" style={{ cursor: 'pointer' }} />
-                                </ImageLabel>
-                                <input
-                                    id="upload-input"
-                                    name="imageUrl"
-                                    type="file"
-                                    accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
-                                    onChange={handleImageChange}
-                                    style={{ display: 'none' }}
-                                />
-                            </BoxUpload>
-                        )}
+        <div style={{ display: "flex", justifyContent: "space-between",margin:"2vh auto" }}>
+            <Dropzone onDrop={dropHandler}>
+                {({ getRootProps, getInputProps }) => (
+                    <section>
+                        <div
+                            style={{
+                                width: 250,
+                                height: 200,
+                                border: "1px solid lightgray",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                            {...getRootProps()}
+                        >
+                            <input {...getInputProps()} />
+                           <AiOutlinePlus size={30} />
+                        </div>
+                    </section>
+                )}
+            </Dropzone>
+            <div
+                style={{
+                    display: "flex",
+                    width: "350px",
+                    height: "200px",
+                    overflowX: "scroll",
+                }}
+            >
+                {Images.map((image, index) => (
+                    <div onClick={() => deleteHandler(image)} key={index}>
+                        <img
+                            style={{ minWidth: "300px", width: "300px", height: "240px" }}
+                            src={`http://localhost:5000/${image}`}
+                        />
                     </div>
-
-        </Layout>
+                ))}
+            </div>
+        </div>
     );
 }
 
-const Layout = styled.div`
-margin: 3vh 0;
-  height: 100%;
-  width: 100%;
-  background: white;
-`;
-export const BoxUpload = styled.div`
-  display: flex;
-  width: 180px;
-  height: 200px;
-  border: 1px dashed gray;
-  background: #ECF2EC;
-  border-radius: 3px;
-`;
-export const ImageLabel = styled.label`
-  margin: auto auto;
-`;
-
-export const ImagePreview = styled.div`
-  position: relative;
-  #uploaded-image {
-  width: 180px;
-  height: 200px;
-    object-fit: cover;
-    border-radius: 3px;
-  }
-  #close-icon {
-   position: relative;
-  cursor: pointer;
-  z-index: 2;
-  top: -165px;
-  right: -175px;
-    opacity: .6;
-    
-    :hover {
-    opacity: 1;
-  }
-`;
-
-export default Image;
+export default FileUpload;
