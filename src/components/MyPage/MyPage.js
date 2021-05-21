@@ -1,7 +1,7 @@
 import React from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMedal } from '@fortawesome/free-solid-svg-icons';
 import Badge from "./Badge";
+import UserInfo from "./UserInfo";
+
 function MyPage() {
     return (
         <div className="MyPage">
@@ -9,13 +9,7 @@ function MyPage() {
                 <div className="MyPage_UserInfo_title">
                     <p>유저 정보</p>
                 </div>
-                <div className="MyPage_UserInfo_desc">
-                    <FontAwesomeIcon icon={faMedal} size="4x" style={{marginLeft:'7vw', color: "red" }} />
-                    <div className="MyPage_UserInfo_desc_2">
-                        <p>홍길동</p>
-                        <p>게시물 6개</p>
-                    </div>
-                </div>
+                <UserInfo />
             </div>
             <Badge />
             <div className="MyPage_UserFeed" >

@@ -16,7 +16,7 @@ const navMenu = [
         text: '교통 부문'
     },
     {
-        link: "/challenge/airconditioning",
+        link: "/challenge/airCondition",
         text: '냉난방 부문'
     },
     {
