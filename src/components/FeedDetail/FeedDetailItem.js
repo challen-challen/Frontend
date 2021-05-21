@@ -1,32 +1,30 @@
-import React from 'react';
-import {FaMedal} from "react-icons/fa";
+import React, {useState} from 'react';
 import {MdChatBubble} from "react-icons/md";
 import {ImEarth} from "react-icons/im";
 import styled from "styled-components";
-import {setMedal} from '../util/setMedal'
+import moment from "moment";
 
-function FeedDetailItem({image, id, name, like,date, content, title, ranking }) {
-    const color = setMedal(ranking);
+function FeedDetailItem({fileUrl, _id, nickname, likes,date, content, title}) {
+   const strDate = (moment(date).format('YYYY-MM-DD h:mm a'))
     return (
         <FeedDetailContainer>
-            <Img src={image} alt={id}/>
+            <Img src={fileUrl} alt={_id}/>
             <InfoWrapper>
                 <User>
-                    <div>{name}</div>
-                    <FaMedal  size={20} color={color} style={{marginLeft: '1.5vw'}}/>
+                    <div>{nickname}</div>
                 </User>
                 <RightInfo>
                     <Comment>
                         <MdChatBubble  size={25} style={{marginRight: '1.5vw'}}/>
-                        <div>{like}개</div>
+                        <div>{likes.length}개</div>
                     </Comment>
                     <Like>
                         <ImEarth size={20} style={{marginRight: '1.5vw'}}/>
-                        <div>{like}개</div>
+                        <div>{likes.length}개</div>
                     </Like>
                 </RightInfo>
             </InfoWrapper>
-            <Date>{date}</Date>
+            <Date>{strDate}</Date>
             <Title>{title}</Title>
             <Content>{content}</Content>
             <Line />
