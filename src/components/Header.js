@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {faCompass, faMedal, faUser} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from 'react-router-dom';
+import axios from "axios";
+import {useSelector} from "react-redux";
 
-function header() {
-    const user = false;
+function Header() {
+    const user = useSelector(state => state.user.user)
     return (
         <div className="header">
             <Link to="/"><img src="/images/logo.png" alt="logo" style={{marginLeft: '10px'}}/></Link>
@@ -25,10 +27,10 @@ function header() {
                     color: "#40804F",
                     width: '23px'
                 }}/></Link>
-            </div> :<a href="http://localhost:5000/api/naver" id="login_btn">로그인</a>}
+            </div> : <a href="http://localhost:5000/api/naver" id="login_btn">로그인</a>}
 
         </div>
     )
 }
 
-export default header
+export default Header
