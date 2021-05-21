@@ -2,12 +2,13 @@ import React from 'react'
 import './App.css';
 
 import AppRouter from './Router';
+const user = true;
 
 function App() {
   return (
     <div className="App">
         
-        <AppRouter/>
+        <AppRouter user={user}/>
    
     </div>
   );

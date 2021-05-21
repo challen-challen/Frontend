@@ -9,5 +9,17 @@
 
 .header img{
     width : 105px;
+}
 
+.header #login_btn{
+    margin-right:2vw;
+    text-decoration: none;
+    color: white;
+    font-family: 'Nanum Gothic Coding', monospace;
+    background: #40804F;
+    width: 100px;
+    text-align: center;
+    height:30px;
+    line-height: 30px;
+    border-radius: 30px;
 }
