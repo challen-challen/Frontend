@@ -16,10 +16,12 @@ li {
 }
 
 /*현황 화면*/
+
 .MainPage_Current {
     margin-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
+    background-color:rgb(245, 245, 219, 0.2);
 }
 
 .MainPage_Current_title {
@@ -37,6 +39,7 @@ li {
     font-weight: 600;
 }
 
+
 .MainPage_Current_title :last-child {
     font-size: 20px;
     font-weight: 600;
@@ -48,6 +51,7 @@ li {
     align-items: center;
     margin-top: 20px;
 }
+
 
 .MainPage_Current_box {
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -80,10 +84,12 @@ li {
 
 /*시직하가 화면*/
 
+
 .MainPage_Start {
     margin-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
+    background-image: url("startbg.png");
 }
 
 .MainPage_Start_title {
@@ -103,7 +109,9 @@ li {
 
 .MainPage_Start_desc {
     margin-top: 80px;
+    
 }
+
 
 .MainPage_Start_desc p {
     text-align: center;
@@ -131,6 +139,7 @@ li {
     color: white;
     font-size: 1rem;
     font-weight: 800;
+ 
 }
 
 

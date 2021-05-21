@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import {IoIosCheckboxOutline} from 'react-icons/io'
+
 import {Link} from "react-router-dom";
 
 function MainPage_Challenge() {

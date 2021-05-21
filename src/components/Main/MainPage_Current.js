@@ -5,7 +5,6 @@ function MainPage_Current() {
         <div className="MainPage_Current">
              <div className="MainPage_Current_title">
                 <p>오늘의 챌린지 현황</p>
-                <p>+</p>
             </div>
             <div className="MainPage_Current_boxes">
                 <div className="MainPage_Current_box">

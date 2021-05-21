@@ -1,23 +1,45 @@
 import React from 'react'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
+import gas from "./gas.json";
 
 function MainPage_Charts() {
-    const data = [
-    { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-    { name: 'Page B', uv: 200, pv: 1200, amt: 1200 },
-    { name: 'Page C', uv: 400, pv: 2400, amt: 1200 },
-    { name: 'Page D', uv: 600, pv: 3000, amt: 1200 },
-    { name: 'Page E', uv: 900, pv: 4000, amt: 1200 },
-    { name: 'Page F', uv: 300, pv: 2000, amt: 1200 },
-    { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-    { name: 'Page B', uv: 200, pv: 1200, amt: 1200 },
-    { name: 'Page C', uv: 400, pv: 2400, amt: 1200 },
-    { name: 'Page D', uv: 600, pv: 3000, amt: 1200 },
-    { name: 'Page E', uv: 900, pv: 4000, amt: 1200 },
-    { name: 'Page F', uv: 300, pv: 2000, amt: 1200 },
+    const { data } = gas;
+    console.log(data);
+    const data2 = [
+        { name: "0", total: 0 },
+        { name: `${data[0].year}년`, total: `${data[0].Total}` },
+        { name: `${data[1].year}년`, total: `${data[1].Total}` },
+        { name: `${data[2].year}년`, total: `${data[2].Total}` },
+        { name: `${data[3].year}년`, total: `${data[3].Total}` },
     ];
-
+    const data3 = [
+        {
+            name: `${data[0].year}년`,
+            total: `${data[0].Total}`,
+            direct: `${data[0].Direct}`,
+            indirect: `${data[0].Indirect}`,
+        },
+        {
+            name: `${data[1].year}년`,
+            total: `${data[1].Total}`,
+            direct: `${data[1].Direct}`,
+            indirect: `${data[1].Indirect}`,
+        },
+        {
+            name: `${data[2].year}년`,
+            total: `${data[2].Total}`,
+            direct: `${data[2].Direct}`,
+            indirect: `${data[2].Indirect}`,
+        },
+        {
+            name: `${data[3].year}년`,
+            total: `${data[3].Total}`,
+            direct: `${data[3].Direct}`,
+            indirect: `${data[3].Indirect}`,
+        },
+    ];
+   
     return (
         <div className="MainPage_Charts">
             <div className="MainPage_Charts_title">
@@ -25,12 +47,27 @@ function MainPage_Charts() {
                 <p>온실 가스를 줄이기위해 챌린지에 참여해주세요</p>
             </div>
             <div className="MainPage_Charts_charts">
-                <LineChart width={350} height={350} data={data}>
-                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                    <CartesianGrid stroke="#ccc" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                </LineChart>
+       
+                    <AreaChart
+                        width={350}
+                        height={350}
+                        data={data3}
+                        margin={{
+                            top: 80,
+                            right: 30,
+                            left: 20,
+                            bottom: 10,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="4 4" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Area type="monotone" dataKey="total" stroke="red" fill="red" fillOpacity={0.1} />
+                        <Area type="monotone" dataKey="direct" stroke="#8884d8"  fillOpacity={0.1} fill="blue" activeDot={{ r: 8 }} />
+                        <Area type="monotone" dataKey="indirect" fillOpacity={0.1} fill="green" stroke="#82ca9d" />
+                    </AreaChart>
             </div>
         </div>
     )

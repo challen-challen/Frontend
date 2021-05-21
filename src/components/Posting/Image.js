@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+
 import {AiFillCloseCircle} from "react-icons/ai";
 import {MdWallpaper} from "react-icons/md";
 
-function Image() {
+function Image({postContent, setPostContent}) {
     const [image, setImage] = useState("");
     const [isUploaded, setIsUploaded] = useState(false);
 
+  
     function handleImageChange(e) {
         if (e.target.files && e.target.files[0]) {
             let reader = new FileReader();
@@ -14,11 +16,17 @@ function Image() {
             reader.onload = function (e) {
                 setImage(e.target.result);
                 setIsUploaded(true);
+
+                setPostContent({
+                    ...postContent,
+                    imageUrl: e.target.result
+                })
             };
 
             reader.readAsDataURL(e.target.files[0]);
         }
     }
+
 
     return (
         <Layout>
@@ -42,6 +50,7 @@ function Image() {
                                 </ImageLabel>
                                 <input
                                     id="upload-input"
+                                    name="imageUrl"
                                     type="file"
                                     accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
                                     onChange={handleImageChange}
@@ -87,7 +96,6 @@ export const ImagePreview = styled.div`
   z-index: 2;
   top: -165px;
   right: -175px;
- 
     opacity: .6;
     
     :hover {

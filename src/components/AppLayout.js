@@ -18,4 +18,5 @@ const Container = styled.div`
   width: 650px;
   margin: 0 auto;
 `;
+
 export default AppLayout;

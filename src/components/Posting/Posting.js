@@ -4,6 +4,34 @@ import Image from "./Image";
 
 function Posting() {
     const [date, setDate] = useState('');
+    const [postContent, setPostContent]=useState(
+        {
+            category:1,
+            title :'',
+            subtitle:'',
+            desc :'',
+            imageUrl :'',
+        }
+    )
+    
+    const onChangeContent=(e)=>{
+        const {name, value}=e.target;
+         setPostContent({
+             ...postContent,
+             [name]: value
+         })
+        }
+
+        const onChangeSelect=(e)=>{
+            setPostContent({
+                ...postContent,
+                category: e.target.value
+            })
+            }
+
+     
+        console.log(postContent)
+
     useEffect(()=>{
         const nowDate = new Date();
         setDate(moment(nowDate).format('YYYY-MM-DD'))
@@ -15,12 +43,12 @@ function Posting() {
             </div>
             <div  className="Posting_cont">
                 <p>챌린지 인증 사진</p>
-                <Image />
+                <Image postContent={postContent} setPostContent={setPostContent} onChangeContent={onChangeContent} />
             </div>
             <div className="Posting_cont_input">
                 <p>카테고리</p>
                 <form>
-                    <select>
+                    <select onChange={onChangeSelect}>
                         <option value="1">전기 부문</option>
                         <option value="2">교통 부문</option>
                         <option value="3">냉낭방 부문</option>
@@ -29,15 +57,15 @@ function Posting() {
                 </form>
                 <p>제목</p>
                 <form>
-                    <input placeholder="제목" />
+                    <input name="title" onChange={onChangeContent} placeholder="제목" />
                 </form>
                 <p>실천 방안</p>
                 <form>
-                    <input placeholder="제목" />
+                    <input name="subtitle" onChange={onChangeContent} placeholder="실천 방안" />
                 </form>
                 <p>내용</p>
                 <form>
-                    <textarea  rows="4" />
+                    <textarea name="desc" onChange={onChangeContent} rows="4" />
                 </form>
                 <div className="Posting_btn">
                     <button>등록하기</button>

@@ -21,7 +21,6 @@ function Ranking() {
 
     return (
         <Container>
-
             <Title>종합 챌린지 랭킹</Title>
             <Top3Wrapper>
                 <RankingItem>
@@ -97,6 +96,7 @@ margin: 2vh auto;
 width: 95%;
 font-size: 1.3rem;
 `;
+
 const Desc = styled.div`
 font-weight: bold;
 margin: 2vh auto;

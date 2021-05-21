@@ -9,11 +9,13 @@ import DescriptionModal from "./modal/DescriptionModal";
 function Feed({match}) {
     const [sort, setSort] = useState('recent')
     const [isOpen, setIsOpen] = useState(false);
+
     const onChangeSort = (e) => {
         setSort(e.target.value)
         console.log(e.target.value)
     }
     const category = match.params.category;
+
 
     const openModal = () => {
         setIsOpen(true);
@@ -21,6 +23,7 @@ function Feed({match}) {
     const closeModal = () =>{
         setIsOpen(false)
     }
+
     return (
         <div>
         <NavBar/>
@@ -47,6 +50,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 `;
+
 const TopWrapper = styled.div`
 display: flex;
 justify-content: space-between;
