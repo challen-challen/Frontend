@@ -6,7 +6,7 @@ function DescriptionContent({title,array}) {
         <div>
             <Title>{title}</Title>
             <List>
-            {array.map((item)=><li>✔ {item}</li>)}
+            {array.map((item)=><li key={item}>✔ {item}</li>)}
             </List>
         </div>
     );

@@ -18,7 +18,7 @@ function RankingList({index, id, like}) {
         if(index >2 ){
             setColor(colors[3])
         }
-    },[index])
+    },[index,colors])
     return (
         <Container color={color}>
             <Index>{index+1}위</Index>
