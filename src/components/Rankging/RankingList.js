@@ -4,7 +4,7 @@ import styled from "styled-components";
 function RankingList({index, id, like}) {
     const colors=['rgba(255,85,109,0.1)','rgba(82,196,188,0.1)','rgba(253,250,190,0.2)','white']
     const [color, setColor] = useState('white')
-
+  
     useEffect(()=>{
         if(index === 0){
             setColor(colors[0])
