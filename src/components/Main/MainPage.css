@@ -17,9 +17,10 @@ ul {
 
 /*현황 화면*/
 .MainPage_Current{
-    margin-top: 20px;
+    padding-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
+    background-color:rgb(245, 245, 219, 0.2);
 }
 .MainPage_Current_title{
     display: flex;
@@ -36,10 +37,10 @@ ul {
    font-weight: 600;
 }
 
-.MainPage_Current_title :last-child{
+/* .MainPage_Current_title :last-child{
     font-size: 20px;
    font-weight: 600;
-}
+} */
 
 .MainPage_Current_boxes{
     display: flex;
@@ -49,7 +50,7 @@ ul {
 }
 
 .MainPage_Current_box{
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.5);
     width: 30%;
     height: 130px;
     border-radius: 10%;
@@ -81,9 +82,10 @@ ul {
 /*시직하가 화면*/
 
 .MainPage_Start{
-    margin-top: 20px;
+    margin-top: 0px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
+    background-image: url("startbg.png");
 }
 
 .MainPage_Start_title{
@@ -99,39 +101,53 @@ ul {
     margin-left: 1vw;
     margin-right: 1vw;
    font-weight: 600;
+   color:aliceblue
 }
 
 .MainPage_Start_desc{
     margin-top: 80px;
+    
 }
 
 .MainPage_Start_desc p{
-    text-align: center;
+    font-family: Quicksand;
+    margin-left: 30px;
+    color:aliceblue;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
 }
 
 .MainPage_Start_btn{
-    text-align: center;
-    margin-top: 80px;
+    margin-left: 30px;
+    margin-top: 40px;
     margin-bottom: 95px;
-
+    color:aliceblue
 }
 
 .MainPage_Start_btn p{
-    text-align: center;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.5);
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color:aliceblue
 }
 
 .MainPage_Start_btn button{
     margin-top: 100px;
     text-align: center;
-    height: 30px;
+    width: 139px;
+height: 44px;
     border: none;
-    background-color: green;
-    border-radius: 20px;
+ background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+border-radius: 22px;
     color: aliceblue;
-    font-size: 15px;
-    font-weight: 800;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
 }
 
 
