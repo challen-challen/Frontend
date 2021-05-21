@@ -8,30 +8,30 @@ function Badge() {
         <Container>
             <Title>나의 뱃지</Title>
             <BadgeContainer>
-                <div>
+                <Item>
                     <Img src={b3} alt="b3"/>
                     <Desc>3회 연속 업로드</Desc>
-                </div>
-                <div>
+                </Item>
+                <Item>
                     <Img src={b5lock} alt="b5lock" style={{opacity: '0.5'}}/>
                     <Desc>5회 연속 업로드</Desc>
-                </div>
-                <div>
+                </Item>
+                <Item>
                     <Img src={b5lock} alt="b5lock" style={{opacity: '0.5'}}/>
                     <Desc>7회 연속 업로드</Desc>
-                </div>
-                <div>
+                </Item>
+                <Item>
                     <Img src={b5lock} alt="b5lock" style={{opacity: '0.5'}}/>
                     <Desc>3주 연속 업로드</Desc>
-                </div>
-                <div>
+                </Item>
+                <Item>
                     <Img src={b5lock} alt="b5lock" style={{opacity: '0.5'}}/>
                     <Desc>5주 연속 업로드</Desc>
-                </div>
-                <div>
+                </Item>
+                <Item>
                     <Img src={b5lock} alt="b5lock" style={{opacity: '0.5'}}/>
                     <Desc>7주 연속 업로드</Desc>
-                </div>
+                </Item>
             </BadgeContainer>
         </Container>
     );
@@ -48,12 +48,15 @@ const Title = styled.div`
    font-weight: 600;
 `;
 const BadgeContainer = styled.div`
-width: 100%;
+margin: 0 auto;
 margin: 2vh;
 display: grid;
 grid-template-columns:1fr 1fr 1fr;
 }
 row-gap: 3vh;
+`;
+const Item = styled.div`
+margin: 0 auto;
 `;
 const Img = styled.img`
 width: 90px;

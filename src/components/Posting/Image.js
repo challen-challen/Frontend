@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import {FcOpenedFolder} from "react-icons/fc";
 import {AiFillCloseCircle} from "react-icons/ai";
 import {MdWallpaper} from "react-icons/md";
 
@@ -83,11 +82,12 @@ export const ImagePreview = styled.div`
     border-radius: 3px;
   }
   #close-icon {
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
-    right: 180px;
-    top: 1px;
+   position: relative;
+  cursor: pointer;
+  z-index: 2;
+  top: -165px;
+  right: -175px;
+ 
     opacity: .6;
     
     :hover {

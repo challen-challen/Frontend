@@ -29,7 +29,7 @@ function FeedItem({image, name, like,title,id, category, ranking}) {
 const ItemContainer = styled.div`
 display: flex;
 flex-direction: column;
-width: 160px;
+width: 180px;
 margin: 1vh auto;
 `;
 const Title = styled(Link)`

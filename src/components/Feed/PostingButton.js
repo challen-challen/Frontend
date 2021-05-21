@@ -12,8 +12,12 @@ function PostingButton() {
 
 const ButtonWrapper = styled(Link)`
  position: fixed;
-  bottom: 30px;
-  right: 30px;
+    left: 65%;
+  bottom: 50px;
+  @media (max-width: 769px) {
+    width: 100%;
+  }
+  width: 650px;
 `;
 const Button = styled.input`
 width: 100px;
