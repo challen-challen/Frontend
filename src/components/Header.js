@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from 'react-router-dom';
 
 function header() {
-    const user = true;
+    const user = false;
     return (
         <div className="header">
             <Link to="/"><img src="/images/logo.png" alt="logo" style={{marginLeft: '10px'}}/></Link>
@@ -25,7 +25,7 @@ function header() {
                     color: "#40804F",
                     width: '23px'
                 }}/></Link>
-            </div> :<Link to="/login/naver" id="login_btn">로그인</Link>}
+            </div> :<a href="http://localhost:5000/api/naver" id="login_btn">로그인</a>}
 
         </div>
     )
