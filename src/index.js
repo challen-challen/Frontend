@@ -9,6 +9,8 @@ import "./components/Main/MainPage.css";
 import "./components/Posting/Posting.css";
 import "./components/MyPage/MyPage.css";
 import {setUserTemp} from "./actions/user_actions";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 function loadLocalUser() {
     try {

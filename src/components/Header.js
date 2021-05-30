@@ -5,8 +5,11 @@ import {Link} from 'react-router-dom';
 import axios from "axios";
 import {useSelector} from "react-redux";
 
-function Header() {
+function Header() { 
     const user = useSelector(state => state.user.user)
+    useEffect(() => {
+    }, [user])
+
     return (
         <div className="header">
             <Link to="/"><img src="/images/logo.png" alt="logo" style={{marginLeft: '10px'}}/></Link>
