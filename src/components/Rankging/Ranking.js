@@ -45,7 +45,7 @@ function Ranking() {
                 <option value="all">전체</option>
                 <option value="electricity">전기부문</option>
                     <option value="traffic">교통부문</option>
-                    <option value="airconditioning">냉난방부문</option>
+                    <option value="airCondition">냉난방부문</option>
                     <option value="resource">자원부문</option>
             </SortSelect>
             </TitleWrapper>
@@ -59,7 +59,7 @@ function Ranking() {
                 <option value="all">전체</option>
                 <option value="electricity">전기부문</option>
                 <option value="traffic">교통부문</option>
-                <option value="airconditioning">냉난방부문</option>
+                <option value="airCondition">냉난방부문</option>
                 <option value="resource">자원부문</option>
             </SortSelect>
         </TitleWrapper>
