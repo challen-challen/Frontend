@@ -23,7 +23,7 @@ function HomeRoutes() {
     return (<Switch>
         <Route exact path="/" component={MainPage}/>
         <Route exact path="/mypage" component={MyPage}/>
-        <Route exact path="/posting" component={Posting}/>
+        <Route exact path="/posting/:category" component={Posting}/>
         <Route exact path="/challenge/:category" component={Feed}/>
         <Route path="/challenge/:category/:id" component={FeedDetail}/>
         <Route path="/ranking" component={Ranking}/>
