@@ -1,0 +1,29 @@
+.userInfo{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #bfbfbf;
+}
+.userInfo p {
+    margin-left: 1vw;
+    font-weight: 600;
+}
+
+.userInfo .infoContainer {
+    width: 60%;
+    margin: 2vh auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userInfo .infoContainer li {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.userInfo .infoContainer input{
+    width: 100px;
+    cursor: pointer;
+    margin: auto 0;
+}

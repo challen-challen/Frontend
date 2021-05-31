@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import './UserInfo.css'
 import {useHistory} from "react-router";
 import {useDispatch} from "react-redux";
 import {logout} from '../../actions/user_actions'
@@ -12,30 +12,16 @@ function UserInfo({user}) {
         history.push('/')
     }
     return (
-        <Container>
-            <Name>{user && user.nickname}</Name>
-            <Number>{user?.post && user.post.length}개</Number>
-            <Logout type="button" value="로그아웃" onClick={handleLogout}/>
-        </Container>
+        <div className="userInfo">
+            <p>유저 정보</p>
+            <ul className="infoContainer">
+                <li>{user && user.nickname}</li>
+                <li>{user?.post && user.post.length}개</li>
+                <input type="button" value="로그아웃" onClick={handleLogout}/>
+            </ul>
+        </div>
     );
 }
 
-const Container = styled.div`
-width: 60%;
-margin: 2vh auto;
-display: flex;
-align-items: center;
-justify-content: space-between;
-`;
-const Name = styled.div`
-font-size: 1.5rem;
-font-weight: bold;
-`;
-const Number = styled.div`
-font-size: 1.3rem;
-`;
-const Logout = styled.input`
-width: 100px;
-cursor: pointer;
-`;
+
 export default UserInfo;
