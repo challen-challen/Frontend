@@ -3,7 +3,8 @@ import styled from "styled-components";
 import b3 from './b3.png'
 import b5lock from './b5lock.png'
 
-function Badge() {
+function Badge({user}) {
+
     return (
         <Container>
             <Title>나의 뱃지</Title>
