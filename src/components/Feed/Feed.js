@@ -49,8 +49,9 @@ function Feed({match}) {
             </SortSelect>
             </TopWrapper>
             {isOpen? <DescriptionModal closeModal={closeModal} />:''}
+            {post.length === 0 && <NoContent>게시물이 없습니다.</NoContent>}
             <FeedList category={category} post={post}/>
-            <PostingButton />
+            {category === 'all'?'': <PostingButton category={category} />}
         </FeedContainer>
         </div>
     );
@@ -59,6 +60,7 @@ function Feed({match}) {
 const FeedContainer = styled.div`
 margin: 0 auto;
 width: 100%;
+height: 100%;
 display: flex;
 flex-direction: column;
 `;
@@ -79,7 +81,9 @@ const SortSelect = styled.select`
   background: white;
   
 `;
-
+const NoContent = styled.div`
+text-align: center;
+`;
 const Line = styled.div`
 border-bottom: 1px solid #838383;
 margin: 2vh 0;

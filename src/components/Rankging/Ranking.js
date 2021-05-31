@@ -36,7 +36,6 @@ function Ranking() {
 
 
     return (
-
         <>
             { isLoading ? (<h1>loading</h1>) : (
                 <Container>

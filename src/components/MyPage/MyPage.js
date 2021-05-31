@@ -1,17 +1,20 @@
 import React from 'react'
 import Badge from "./Badge";
 import UserInfo from "./UserInfo";
+import {useSelector} from "react-redux";
 
 function MyPage() {
+    const user = useSelector(state => state.user.user)
+
     return (
         <div className="MyPage">
             <div className="MyPage_UserInfo">
                 <div className="MyPage_UserInfo_title">
                     <p>유저 정보</p>
                 </div>
-                <UserInfo />
+                <UserInfo user={user}/>
             </div>
-            <Badge />
+            <Badge user={user}/>
             <div className="MyPage_UserFeed" >
                 <div className="MyPage_UserFeed_title">
                     <p>나의 피드</p>

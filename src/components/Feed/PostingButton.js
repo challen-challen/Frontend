@@ -2,9 +2,9 @@ import React from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
-function PostingButton() {
+function PostingButton({category}) {
     return (
-        <ButtonWrapper to="/posting">
+        <ButtonWrapper to={`/posting/${category}`}>
            <Button type="button" value="참여하기" />
         </ButtonWrapper>
     );

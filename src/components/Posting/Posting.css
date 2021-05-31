@@ -44,6 +44,7 @@
     border: 1px solid #707070;
     width: 100%;
     height: 35px;
+    margin-bottom: 1.5vh;
 }
 
 .Posting_btn {
@@ -70,9 +71,5 @@
     font-size: 1rem;
     font-weight: 800;
     opacity: 0.9;
-}
-
-
-.Posting_btn button :hover{
-    opacity:1;
+    cursor: pointer;
 }

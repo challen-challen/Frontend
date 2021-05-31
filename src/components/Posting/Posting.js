@@ -1,79 +1,131 @@
 import React, {useEffect, useState} from 'react'
 import moment from 'moment';
 import Image from "./Image";
+import {category, electricity, traffic, airCondition, resource} from '../util/selectOption'
+import Select from "./Select";
+import axios from "axios";
 
-function Posting() {
+function Posting({match}) {
+    const writer = localStorage.getItem('user');
     const [date, setDate] = useState('');
-    const [postContent, setPostContent]=useState(
+    const urlCategory = match.params.category;
+    const [selectAction, setSelectAction] = useState([]);
+    const [etc, setEtc] = useState(false);
+    const [postContent, setPostContent] = useState(
         {
-            "writer": "1",
-            "category": "electricity",
-            "fileUrl": "",
-            "title": "",
-            "plan": "",
-            "content": ""
+            writer: `${writer}`,
+            category: `${urlCategory}`,
+            fileUrl: ['asdf','asdf'],
+            title: 'asdfasdf',
+            plan: 'asdfasdf',
+            content: 'asdfasddf',
+
         }
     )
-  
-    const onChangeContent=(e)=>{
+     const onChangeContent=(e)=>{
         const {name, value}=e.target;
          setPostContent({
              ...postContent,
              [name]: value
          })
+         
+    useEffect(() => {
+        if (postContent.category === 'electricity') {
+            setSelectAction(electricity)
         }
-
-        const onChangeSelect=(e)=>{
+        if (postContent.category === 'traffic') {
+            setSelectAction(traffic)
+        }
+        if (postContent.category === 'airCondition') {
+            setSelectAction(airCondition)
+        }
+        if (postContent.category === 'resource') {
+            setSelectAction(resource)
+        }
+        if (selectAction.length !== 0) {
             setPostContent({
                 ...postContent,
-                category: e.target.value
+                plan: selectAction[0].value
             })
-}
+        }
+    }, [postContent.category])
 
-     
-   
-      
+    useEffect(() => {
+        if (postContent.plan === '기타') {
+            setEtc(true)
+        } else {
+            setEtc(false)
+        }
+    }, [postContent.plan])
+    console.log(postContent);
+    const onChangeContent = (e) => {
+        const {name, value} = e.target;
+        setPostContent({
+            ...postContent,
+            [name]: value
+        })
+    }
 
-    useEffect(()=>{
+    const onChangeCategory = (e) => {
+        setPostContent({
+            ...postContent,
+            category: e.target.value
+        })
+    }
+    const onChangePlan = (e) => {
+        setPostContent({
+            ...postContent,
+            plan: e.target.value
+        })
+    }
+
+    const handleUpload = () => {
+        axios.post('http://localhost:5000/api/challen/posts', postContent,{withCredentials:true}).then(response => console.log(response))
+    }
+    console.log(postContent)
+
+    useEffect(() => {
         const nowDate = new Date();
         setDate(moment(nowDate).format('YYYY-MM-DD'))
-    },[])
+    }, [])
 
-    console.log(postContent)
-  
     return (
         <div className="Posting">
-            <div  className="Posting_title">
-               <p><strong style={{border:'1px solid #707070',padding:'1vh 1vw'}}>{date}</strong> 당신의 <strong style={{backgroundColor:'rgba(64,124,79,0.2)'}}>작은 실천</strong>이 지구를 바꿉니다.</p>
+            <div className="Posting_title">
+                <p><strong style={{border: '1px solid #707070', padding: '1vh 1vw'}}>{date}</strong> 당신의 <strong
+                    style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>작은 실천</strong>이 지구를 바꿉니다.</p>
             </div>
-            <div  className="Posting_cont">
+            <div className="Posting_cont">
                 <p>챌린지 인증 사진</p>
                 <Image postContent={postContent} setPostContent={setPostContent}/>
             </div>
             <div className="Posting_cont_input">
                 <p>카테고리</p>
                 <form>
-                    <select onChange={onChangeSelect}>
-                        <option value="electricity">전기 부문</option>
-                        <option value="traffic">교통 부문</option>
-                        <option value="airCondition">냉낭방 부문</option>
-                        <option value="resource">자원 부문</option>
-                    </select>
+                    <Select options={category} onChange={onChangeCategory} defaultValue={urlCategory}/>
                 </form>
                 <p>제목</p>
                 <form>
-                    <input name="title" onChange={onChangeContent} placeholder="제목" />
+                    <input name="title" onChange={onChangeContent} placeholder="제목"/>
                 </form>
                 <p>실천 방안</p>
                 <form>
-                    <input name="plan" onChange={onChangeContent} placeholder="실천 방안" />
+                    {selectAction && <Select options={selectAction} onChange={onChangePlan} defaultValue=''/>}
                 </form>
+                {etc &&
+                <div>
+                    <p>기타 실천 방안</p>
+                    <form>
+                        <input name="subtitle" onChange={onChangeContent} placeholder="실천 방안"/>
+                    </form>
+                </div>
+                }
                 <p>내용</p>
                 <form>
                     <textarea name="content" onChange={onChangeContent} rows="4" />
                 </form>
                 <div className="Posting_btn">
-                    <button>등록하기</button>
+                    <button onClick={handleUpload}>등록하기</button>
                 </div>
             </div>
         </div>

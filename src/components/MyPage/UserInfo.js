@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import {useHistory} from "react-router";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {logout} from '../../actions/user_actions'
 
-function UserInfo() {
-    const user = useSelector(state => state.user.user)
-    console.log('user', user)
+function UserInfo({user}) {
     const dispatch = useDispatch()
     const history = useHistory();
     const handleLogout = () => {
@@ -15,8 +13,8 @@ function UserInfo() {
     }
     return (
         <Container>
-            <Name>{user.nickname}</Name>
-            <Number>{user.post.length}개</Number>
+            <Name>{user && user.nickname}</Name>
+            <Number>{user?.post && user.post.length}개</Number>
             <Logout type="button" value="로그아웃" onClick={handleLogout}/>
         </Container>
     );
