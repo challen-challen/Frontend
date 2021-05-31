@@ -15,10 +15,10 @@ function Posting({match}) {
         {
             writer: `${writer}`,
             category: `${urlCategory}`,
-            fileUrl: ['asdf', 'asdf'],
-            title: 'asdfasdf',
-            plan: 'asdfasdf',
-            content: 'asdfasddf',
+            fileUrl:'',
+            title: '',
+            plan: '',
+            content: '',
 
         }
     )
@@ -35,12 +35,6 @@ function Posting({match}) {
             }
             if (postContent.category === 'resource') {
                 setSelectAction(resource)
-            }
-            if (selectAction.length !== 0) {
-                setPostContent({
-                    ...postContent,
-                    plan: selectAction[0].value
-                })
             }
         }, [postContent.category])
 
