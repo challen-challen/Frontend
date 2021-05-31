@@ -13,7 +13,7 @@ function FileUpload() {
         };
         formData.append("file", files[0]);
 
-        axios.post("/api/upload/image", formData, config).then((response) => {
+        axios.post("http://localhost:5000/api/posts/upload", formData, config).then((response) => {
             if (response.data.success) {
                 console.log(response.data);
                 setImages([...Images, response.data.filePath]);
@@ -30,7 +30,7 @@ function FileUpload() {
         setImages(newImages);
     };
     return (
-        <div style={{ display: "flex", justifyContent: "space-between",margin:"2vh auto" }}>
+        <div style={{ display: "flex", justifyContent: "space-between",margin:"2vh auto 3vh auto" }}>
             <Dropzone onDrop={dropHandler}>
                 {({ getRootProps, getInputProps }) => (
                     <section>
