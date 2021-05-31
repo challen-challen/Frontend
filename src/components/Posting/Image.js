@@ -1,75 +1,88 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Dropzone from "react-dropzone";
-import {AiOutlinePlus} from'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai'
 import axios from "axios";
 
-function FileUpload() {
-    const [Images, setImages] = useState([]);
+function FileUpload({postContent, setPostContent}) {
+  const [Images, setImages] = useState([]);
+  const [attachment, setAttachment] = useState("");
+  const fileInput = useRef();
 
-    const dropHandler = (files) => {
-        let formData = new FormData();
-        const config = {
-            header: { "content-type": "multipart/form-data" },
-        };
-        formData.append("file", files[0]);
 
-        axios.post("http://localhost:5000/api/posts/upload", formData, config).then((response) => {
-            if (response.data.success) {
-                console.log(response.data);
-                setImages([...Images, response.data.filePath]);
-            } else {
-                alert("파일을 저장하는데 실패했습니다.");
-            }
-        });
-    };
-    const deleteHandler = (image) => {
-        const currentIndex = Images.indexOf(image);
+  const dropHandler = (file) => {
+    console.log(file[0]);
 
-        let newImages = [...Images];
-        newImages.splice(currentIndex, 1);
-        setImages(newImages);
-    };
-    return (
-        <div style={{ display: "flex", justifyContent: "space-between",margin:"2vh auto 3vh auto" }}>
-            <Dropzone onDrop={dropHandler}>
-                {({ getRootProps, getInputProps }) => (
-                    <section>
-                        <div
-                            style={{
-                                width: 250,
-                                height: 200,
-                                border: "1px solid lightgray",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                            }}
-                            {...getRootProps()}
-                        >
-                            <input {...getInputProps()} />
-                           <AiOutlinePlus size={30} />
-                        </div>
-                    </section>
-                )}
-            </Dropzone>
-            <div
-                style={{
-                    display: "flex",
-                    width: "350px",
-                    height: "200px",
-                    overflowX: "scroll",
-                }}
-            >
-                {Images.map((image, index) => (
-                    <div onClick={() => deleteHandler(image)} key={index}>
-                        <img
-                            style={{ minWidth: "300px", width: "300px", height: "240px" }}
-                            src={`http://localhost:5000/${image}`}
-                        />
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+  };
+  const deleteHandler = (image) => {
+    const currentIndex = Images.indexOf(image);
+
+    let newImages = [...Images];
+    newImages.splice(currentIndex, 1);
+    setImages(newImages);
+  };
+
+
+  const onImgChange = (event) => {
+    const { target: { files } } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile);
+    reader.onloadend = (finishedEvent) => {
+
+      const { target: { result } } = finishedEvent;
+      
+      setAttachment(result);
+      setPostContent({
+        ...postContent,
+        fileUrl : result
+      })
+    }
+
+  }
+
+  return (
+    <div style={{ display: "flex", justifyContent: "space-around",margin:"2vh auto" }}>
+
+      <div
+        style={{
+          width: 150,
+          height: 150,
+          border: "1px solid lightgray",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+
+      >
+        <label for="input-file">
+        <AiOutlinePlus size={60}  />
+        </label>
+        <input  id="input-file"  style={{ opacity: 0, width: 0, }} type="file" accept="image/*" ref={fileInput} onChange={onImgChange} />
+        
+      </div>
+
+{  attachment !== "" &&    (<div
+        style={{
+          display: "flex",
+          width: "150px",
+          height: "150px",
+          overflow: "hidden",
+        }}
+      >
+       
+          <div>
+            <img
+              style={{ minWidth: "150px", width: "150px", height: "150px" }}
+              src={attachment}
+            />
+          </div>
+    
+      </div>)
+    }
+
+
+    </div>
+  );
 }
 
 export default FileUpload;

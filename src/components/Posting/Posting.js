@@ -22,6 +22,13 @@ function Posting({match}) {
 
         }
     )
+     const onChangeContent=(e)=>{
+        const {name, value}=e.target;
+         setPostContent({
+             ...postContent,
+             [name]: value
+         })
+         
     useEffect(() => {
         if (postContent.category === 'electricity') {
             setSelectAction(electricity)
@@ -73,7 +80,6 @@ function Posting({match}) {
     }
 
     const handleUpload = () => {
-
         axios.post('http://localhost:5000/api/challen/posts', postContent,{withCredentials:true}).then(response => console.log(response))
     }
     console.log(postContent)
@@ -82,6 +88,7 @@ function Posting({match}) {
         const nowDate = new Date();
         setDate(moment(nowDate).format('YYYY-MM-DD'))
     }, [])
+
     return (
         <div className="Posting">
             <div className="Posting_title">
@@ -90,7 +97,7 @@ function Posting({match}) {
             </div>
             <div className="Posting_cont">
                 <p>챌린지 인증 사진</p>
-                <Image postContent={postContent} setPostContent={setPostContent} onChangeContent={onChangeContent}/>
+                <Image postContent={postContent} setPostContent={setPostContent}/>
             </div>
             <div className="Posting_cont_input">
                 <p>카테고리</p>
@@ -115,7 +122,7 @@ function Posting({match}) {
                 }
                 <p>내용</p>
                 <form>
-                    <textarea name="desc" onChange={onChangeContent} rows="4"/>
+                    <textarea name="content" onChange={onChangeContent} rows="4" />
                 </form>
                 <div className="Posting_btn">
                     <button onClick={handleUpload}>등록하기</button>

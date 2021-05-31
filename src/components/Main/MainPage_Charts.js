@@ -5,7 +5,6 @@ import gas from "./gas.json";
 
 function MainPage_Charts() {
     const { data } = gas;
-    console.log(data);
     const data2 = [
         { name: "0", total: 0 },
         { name: `${data[0].year}년`, total: `${data[0].Total}` },
