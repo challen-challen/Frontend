@@ -54,7 +54,7 @@ function FileUpload({postContent, setPostContent}) {
         }}
 
       >
-        <label for="input-file">
+        <label htmlFor="input-file">
         <AiOutlinePlus size={60}  />
         </label>
         <input  id="input-file"  style={{ opacity: 0, width: 0, }} type="file" accept="image/*" ref={fileInput} onChange={onImgChange} />
