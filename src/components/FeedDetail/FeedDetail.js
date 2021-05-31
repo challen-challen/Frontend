@@ -19,7 +19,7 @@ function FeedDetail({match}) {
             <Line/>
             <div style={{width: '92%', margin:'0 auto'}} >
                 {data?.writer &&  <FeedDetailItem _id={data._id} nickname={data.writer.nickname} fileUrl="https://via.placeholder.com/150" likes={data.likes} date={data.createAt} title={data.title} content={data.content} /> }
-            <Comment />
+                {data?.comments && <Comment comments={data.comments} id={id}/> }
             </div>
         </DetailContainer>
     );
