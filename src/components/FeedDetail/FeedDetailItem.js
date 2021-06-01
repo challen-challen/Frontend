@@ -16,11 +16,11 @@ function FeedDetailItem({fileUrl, _id, nickname, likes,date, content, title}) {
                 <RightInfo>
                     <Comment>
                         <MdChatBubble  size={25} style={{marginRight: '1.5vw'}}/>
-                        <div>{likes.length}개</div>
+                        <div>{ likes && likes.length}개</div>
                     </Comment>
                     <Like>
                         <ImEarth size={20} style={{marginRight: '1.5vw'}}/>
-                        <div>{likes.length}개</div>
+                        <div>{likes && likes.length}개</div>
                     </Like>
                 </RightInfo>
             </InfoWrapper>

@@ -15,10 +15,10 @@ function Posting({match}) {
         {
             writer: `${writer}`,
             category: `${urlCategory}`,
-            fileUrl: ['asdf', 'asdf'],
-            title: 'asdfasdf',
-            plan: 'asdfasdf',
-            content: 'asdfasddf',
+            fileUrl: "",
+            title: '',
+            plan: 'dfddfdfdfdfd',
+            content: '',
 
         }
     )
