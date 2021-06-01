@@ -8,8 +8,7 @@ import axios from "axios";
 function FeedDetail({match}) {
     const[data, setData] = useState([])
     const id = match.params.id;
-    console.log(data);
-
+ 
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/challen/post/${id}`).then(response=> setData(response.data)).catch(error=>error)
     },[id])
@@ -18,7 +17,7 @@ function FeedDetail({match}) {
             <NavBar/>
             <Line/>
             <div style={{width: '92%', margin:'0 auto'}} >
-                {data?.writer &&  <FeedDetailItem _id={data._id} nickname={data.writer.nickname} fileUrl="https://via.placeholder.com/150" likes={data.likes} date={data.createAt} title={data.title} content={data.content} /> }
+                {data?.writer &&  <FeedDetailItem _id={data._id} nickname={data.writer.nickname} fileUrl={data.fileUrl}  date={data.createAt} title={data.title} content={data.content} likeNum={data.likeNum} /> }
             <Comment />
             </div>
         </DetailContainer>
