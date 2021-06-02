@@ -11,6 +11,8 @@ function Posting({match}) {
     const urlCategory = match.params.category;
     const [selectAction, setSelectAction] = useState([]);
     const [etc, setEtc] = useState(false);
+    const [calculate, setCalculate] = useState(false);
+    const [min,setMin] = useState('');
     const [postContent, setPostContent] = useState(
         {
             writer: `${writer}`,
@@ -18,6 +20,7 @@ function Posting({match}) {
             fileUrl:'',
             title: '',
             plan: '',
+            reducedCarbon:'',
             content: '',
 
         }
@@ -26,24 +29,38 @@ function Posting({match}) {
         useEffect(() => {
             if (postContent.category === 'electricity') {
                 setSelectAction(electricity)
+                setCalculate(true)
             }
             if (postContent.category === 'traffic') {
                 setSelectAction(traffic)
+                setCalculate(false)
             }
             if (postContent.category === 'airCondition') {
                 setSelectAction(airCondition)
+                setCalculate(true)
             }
             if (postContent.category === 'resource') {
                 setSelectAction(resource)
+                setCalculate(false)
             }
+            setPostContent({
+                ...postContent,
+                title: '',
+                plan:'',
+                content:'',
+                fileUrl: '',
+                reducedCarbon: ''
+            })
+            setMin('')
         }, [postContent.category])
 
         useEffect(() => {
-            if (postContent.plan === '기타') {
+            if (postContent.plan === 'etc') {
                 setEtc(true)
             } else {
                 setEtc(false)
             }
+            setMin('')
         }, [postContent.plan])
 
         console.log(postContent);
@@ -55,7 +72,10 @@ function Posting({match}) {
                 [name]: value
             })
         }
-
+    const onChangeMin = (e) =>{
+            setMin(e.target.value)
+    }
+    console.log('m',min)
         const onChangeCategory = (e) => {
             setPostContent({
                 ...postContent,
@@ -72,13 +92,32 @@ function Posting({match}) {
         const handleUpload = () => {
             axios.post('http://localhost:5000/api/challen/posts', postContent, {withCredentials: true}).then(response => console.log(response))
         }
-        console.log(postContent)
 
         useEffect(() => {
             const nowDate = new Date();
             setDate(moment(nowDate).format('YYYY-MM-DD'))
         }, [])
 
+    useEffect(()=>{
+        if(postContent.plan !== '' && !calculate) {
+            axios.get(`http://localhost:5000/api/calculator?category=${postContent.category}&plan=${postContent.plan}`)
+                .then(response => {
+                        setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
+                    }
+                )
+
+        }
+    },[postContent.category, postContent.plan, calculate])
+
+    const onCalculate = () => {
+            axios.get(`http://localhost:5000/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`)
+                .then(response => {
+                    setPostContent({...postContent, reducedCarbon:response.data.reducedCarcon})
+                    }
+                )
+
+
+    }
         return (
             <div className="Posting">
                 <div className="Posting_title">
@@ -100,7 +139,7 @@ function Posting({match}) {
                     </form>
                     <p>실천 방안</p>
                     <form>
-                        {selectAction && <Select options={selectAction} onChange={onChangePlan} defaultValue=''/>}
+                        {selectAction && <Select options={selectAction} onChange={onChangePlan}/>}
                     </form>
                     {etc &&
                     <div>
@@ -114,6 +153,17 @@ function Posting({match}) {
                     <form>
                         <textarea name="content" onChange={onChangeContent} rows="4"/>
                     </form>
+                    {calculate&& postContent.plan !== '' && !etc &&
+                        <div>
+                            <p>탄소 저감량 계산하기</p>
+                            <div className="cal_input">
+                                <input className="minutes" value={min} onChange={onChangeMin}
+                                       placeholder="실천하신 시간(분 단위)을 입력해주세요."/>
+                                <button className="cal_btn" type="button" onClick={onCalculate}>계산하기</button>
+                            </div>
+                        </div>
+                    }
+                    {postContent.reducedCarbon && <div className="reduce_carcon"><strong style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{postContent.reducedCarbon}</strong>mg 만큼의 탄소를 감량했습니다</div>}
                     <div className="Posting_btn">
                         <button onClick={handleUpload}>등록하기</button>
                     </div>
