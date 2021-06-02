@@ -5,7 +5,7 @@ import {category, electricity, traffic, airCondition, resource} from '../util/se
 import Select from "./Select";
 import axios from "axios";
 
-function Posting({match}) {
+function Posting({match, history}) {
     const writer = localStorage.getItem('user');
     const [date, setDate] = useState('');
     const urlCategory = match.params.category;
@@ -90,7 +90,12 @@ function Posting({match}) {
         }
 
         const handleUpload = () => {
-            axios.post('http://localhost:5000/api/challen/posts', postContent, {withCredentials: true}).then(response => console.log(response))
+            axios.post('http://localhost:5000/api/challen/posts', postContent, {withCredentials: true})
+                .then(()=> {
+                        alert('챌린지 등록이 완료되었습니다.')
+                        history.push('/challenge/all')
+                    }
+                )
         }
 
         useEffect(() => {
