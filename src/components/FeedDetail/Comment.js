@@ -30,11 +30,11 @@ function Comment({comments, id}) {
     }
     return (
         <CommentContainer>
-            <Title>{comments.length}개의 댓글</Title>
+            <Title>{comments && comments.length}개의 댓글</Title>
             <Textarea placeholder="댓글을 입력해주세요." value={comment} onChange={onChangeComment}/>
             <Button type="button" value="댓글 작성" onClick={addComment}/>
             <Line/>
-            {comments.map(({_id, writer, content, createdAt}) =>
+            {comments && comments.map(({_id, writer, content, createdAt}) =>
                 <CommentItem key={_id}
                              id={_id} writer={writer.nickname} content={content} date={createdAt}/>)}
         </CommentContainer>
