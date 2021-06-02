@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import dummy from './dummycomment.json';
 import styled from "styled-components";
 import CommentItem from "./CommentItem";
+import axios from "axios";
 
-function Comment() {
-    const [date, setDate] = useState(new Date());
-    const {data} = dummy
+function Comment({comments, id}) {
+    const writer = localStorage.getItem('user')
     const [comment, setComment] = useState('');
+    console.log(comments)
     const onChangeComment = (e) => {
         setComment(e.target.value)
     }
@@ -15,19 +15,28 @@ function Comment() {
             alert('댓글을 입력해주세요')
             return
         }
-        console.log(comment);
-        console.log(date);
-
+        const body = {
+            postId: `${id}`,
+            writer,
+            content: comment,
+        }
+        axios.post('http://localhost:5000/api/comments',body,{withCredentials:true})
+            .then(response =>{
+                console.log(response)
+                alert('댓글이 등록되었습니다.')
+                setComment('')
+                comments.concat(comment)
+            })
     }
     return (
         <CommentContainer>
-            <Title>댓글</Title>
-            <Textarea placeholder="댓글을 입력해주세요." rows="5" value={comment} onChange={onChangeComment}/>
+            <Title>{comments.length}개의 댓글</Title>
+            <Textarea placeholder="댓글을 입력해주세요." value={comment} onChange={onChangeComment}/>
             <Button type="button" value="댓글 작성" onClick={addComment}/>
             <Line/>
-            {data.map(({id, name, ranking, text, date}) =>
-                <CommentItem key={id}
-                             id={id} name={name} ranking={ranking} text={text} date={date}/>)}
+            {comments.map(({_id, writer, content, createdAt}) =>
+                <CommentItem key={_id}
+                             id={_id} writer={writer.nickname} content={content} date={createdAt}/>)}
         </CommentContainer>
     );
 }
@@ -39,12 +48,13 @@ flex-direction: column;
 `;
 const Title = styled.div`
 font-weight: bold;
-font-size: 1.3rem;
-margin: 1vh 0;
+font-size: 1.2rem;
+margin: 1vh 0 2vh 0;
 `;
 
 const Textarea = styled.textarea`
 width: 100%;
+height: 15vh;
 margin-top: 1vh;
 border: 1px solid gray;
 resize: none;
