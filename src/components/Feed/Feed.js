@@ -108,11 +108,10 @@ margin: 2vh 0;
 `;
 
 const ButtonWrapper = styled.div`
-position: absolute;
+
 
 margin:0 auto;
-bottom:0px;
-right:0px;
+
 display:flex;
  justify-content:space-between;
 `;

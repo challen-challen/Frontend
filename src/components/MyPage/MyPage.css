@@ -17,6 +17,7 @@
     justify-content: space-between;
 }
 
+
 .MyPage_UserInfo_desc_2{
     margin-right: 20vw;
 }
@@ -49,7 +50,11 @@
     text-align: center;
 }
 
-
+.MyPage_UserFeed_desc img{
+   width: 100px;
+   height: 100px;
+   margin: 10px;
+}
 
 .MyPage_UserFeed_btn{
     text-align: center;
