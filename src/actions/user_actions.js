@@ -15,9 +15,9 @@ export const setUserTemp = () => async dispatch => {
 
 export const logout = ()=> async dispatch =>{
     try{
-        await axios.get('http://localhost:5000/api/logout').then(response=>
+        await axios.get('http://localhost:5000/api/logout',{withCredentials:true}).then(response=>
         {
-        localStorage.removeItem('user')
+        sessionStorage.clear();
         dispatch({type: LOGOUT, payload: response.data})
         }).catch(error=>error)
     }catch (e) {

@@ -9,7 +9,9 @@ function UserInfo({user}) {
     const history = useHistory();
     const handleLogout = () => {
         dispatch(logout())
-        history.push('/')
+            .then(()=>
+                history.push('/'))
+
     }
     return (
         <div className="userInfo">

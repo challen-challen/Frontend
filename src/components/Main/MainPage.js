@@ -10,8 +10,9 @@ function MainPage() {
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/setUser', {withCredentials: true}).then(
-            (response) =>
-                localStorage.setItem('user', response.data.user._id)
+            (response) => {
+                sessionStorage.setItem('user', response.data.user._id)
+            }
         ).then(error => error)
     }, [])
 

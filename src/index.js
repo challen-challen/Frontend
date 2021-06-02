@@ -14,12 +14,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 function loadLocalUser() {
     try {
-        const user = localStorage.getItem("user");
+        const user = sessionStorage.getItem("user");
         if (!user) return;
         store.dispatch(setUserTemp())
 
     } catch (e) {
-        console.log('localStorage is not working');
+        console.log('sessionStorage is not working');
     }
 }
 
