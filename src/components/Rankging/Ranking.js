@@ -53,7 +53,9 @@ function Ranking() {
         <>
             { isLoading ? (<h1>loading</h1>) : (
                 <Container>
-                    <Title><p>종합 챌린지 랭킹</p> <KakaoShareButton/> </Title>
+                    <TitleWrapper>
+                    <Title>종합 챌린지 랭킹</Title> <KakaoShareButton/>
+                    </TitleWrapper>
                     
                     <Top3Wrapper>
                         <RankingItem>
