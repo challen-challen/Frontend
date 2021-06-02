@@ -19,7 +19,11 @@ function MyPage() {
                     <p>나의 피드</p>
                 </div>
                 <div className="MyPage_UserFeed_desc">
-                    <img src="images/tumblr.png" alt="tumblr" width={250} height={250}/>
+                    <img src="images/tumblr.png" alt="tumblr" />
+                    <img src="images/tumblr.png" alt="tumblr" />
+                    <br/>
+                    <img src="images/tumblr.png" alt="tumblr"/>
+                    <img src="images/tumblr.png" alt="tumblr"/>
                     <div className="MyPage_UserFeed_btn">
                         <p>내가 올린 피드를 보러 갈까요?</p>
                         <button>나의 피드 보기</button>
