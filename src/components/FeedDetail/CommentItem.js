@@ -3,24 +3,21 @@ import styled from "styled-components";
 import moment from "moment";
 import axios from "axios";
 
-function CommentItem({writer, date, content, id}) {
+function CommentItem({writer, date, content, id, deleteComment}) {
     const strDate = (moment(date).format('YYYY-MM-DD h:mm a'))
     const onDelete = async () =>{
-        alert('댓글을 삭제합니다.')
         await  axios.delete(`http://localhost:5000/api/comments/${id}`,{withCredentials:true})
+            .then(
+                deleteComment(id)
+            )
     }
     return (
         <CommentContainer>
             <Info>
-                <div>
                     <Name>{writer}</Name>
-                    <div>{strDate}</div>
-                </div>
-                <ButtonContainer>
-                    <Button style={{marginRight:'1vw'}}>수정</Button>
                     <Button type="button" onClick={onDelete}>삭제</Button>
-                </ButtonContainer>
             </Info>
+            <div>{strDate}</div>
             <Content>{content}</Content>
             <Line/>
         </CommentContainer>
@@ -36,11 +33,8 @@ margin-bottom: 1vh;`;
 const Info = styled.div`
 display: flex;
 justify-content: space-between;
-margin: 2vh 0;
+margin: 1vh 0 0 0;
 
-`;
-const ButtonContainer = styled.div`
-display: flex;
 `;
 const Button = styled.button`
 cursor: pointer;
@@ -49,7 +43,7 @@ border: none;
 height: 10px;
 `;
 const Content = styled.div`
-margin: 1vh 0 3vh 0;
+margin: 2vh 0 3vh 0;
 `;
 const Line = styled.div`
 border-bottom: 1px solid gray;

@@ -5,13 +5,14 @@ import axios from "axios";
 
 function Comment({comments, id}) {
     const writer = localStorage.getItem('user')
+    const [commentsArray, setCommentsArray] = useState(comments);
     const [comment, setComment] = useState('');
     console.log(comments)
     const onChangeComment = (e) => {
         setComment(e.target.value)
     }
     const addComment = () => {
-        if(!comment){
+        if (!comment) {
             alert('댓글을 입력해주세요')
             return
         }
@@ -20,23 +21,29 @@ function Comment({comments, id}) {
             writer,
             content: comment,
         }
-        axios.post('http://localhost:5000/api/comments',body,{withCredentials:true})
-            .then(response =>{
+        axios.post('http://localhost:5000/api/comments', body, {withCredentials: true})
+            .then(response => {
                 console.log(response)
+                const newComments = commentsArray.concat(response.data.comment)
+                setCommentsArray(newComments)
                 alert('댓글이 등록되었습니다.')
                 setComment('')
-                comments.concat(comment)
             })
+    }
+    const deleteComment = (id) =>{
+        const newComments = commentsArray.filter((item)=>item._id !== id)
+        setCommentsArray(newComments);
+        alert('댓글이 삭제되었습니다.')
     }
     return (
         <CommentContainer>
-            <Title>{comments && comments.length}개의 댓글</Title>
+            <Title>{commentsArray && commentsArray.length}개의 댓글</Title>
             <Textarea placeholder="댓글을 입력해주세요." value={comment} onChange={onChangeComment}/>
             <Button type="button" value="댓글 작성" onClick={addComment}/>
             <Line/>
-            {comments && comments.map(({_id, writer, content, createdAt}) =>
+            {commentsArray && commentsArray.map(({_id, writer, content, createdAt}) =>
                 <CommentItem key={_id}
-                             id={_id} writer={writer.nickname} content={content} date={createdAt}/>)}
+                             id={_id} writer={writer?.nickname} content={content} date={createdAt} deleteComment={deleteComment}/>)}
         </CommentContainer>
     );
 }
