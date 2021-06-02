@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {ImEarth} from "react-icons/im"
 
-function FeedItem({writer,fileUrl ,likes ,_id ,title,category}) {
+function FeedItem({writer,fileUrl ,likes ,_id ,title,category, image}) {
 
     return (
         <ItemContainer>
-            <Img src="https://via.placeholder.com/150" alt={fileUrl}/>
+        <Img src={image} alt="image"/>)
             <Title to={`/challenge/${category}/${_id}`}>{title}</Title>
             <InfoContainer>
                 <Wrapper>

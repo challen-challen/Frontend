@@ -6,6 +6,8 @@ import ranking2 from '../util/image/ranking2.png'
 import ranking3 from '../util/image/ranking3.png'
 import rankingdummy from './rankingdata.json';
 import axios from 'axios';
+import KakaoShareButton from './KakaoShareButton';
+
 
 function Ranking() {
     const [sortMonth, setSortMonth] = useState('all')
@@ -24,6 +26,18 @@ function Ranking() {
         loadRanking()
     }, [rankingList, sortMonth, sortDaily])
 
+
+    useEffect(() => {
+        const script = document.createElement('script')
+        script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+        script.async = true
+        document.body.appendChild(script)
+        return () => {
+            document.body.removeChild(script)
+        }
+    }, [])
+
+
     const onChangeSortMonth = (e) => {
         setSortMonth(e.target.value)
         console.log(e.target.value)
@@ -39,7 +53,8 @@ function Ranking() {
         <>
             { isLoading ? (<h1>loading</h1>) : (
                 <Container>
-                    <Title>종합 챌린지 랭킹</Title>
+                    <Title><p>종합 챌린지 랭킹</p> <KakaoShareButton/> </Title>
+                    
                     <Top3Wrapper>
                         <RankingItem>
                             <img src={ranking2} alt="ranking2" style={{ width: '80px' }} />
