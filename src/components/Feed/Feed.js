@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
-import {MdErrorOutline} from 'react-icons/md';
+import {MdErrorOutline, MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md';
 import NavBar from "./NavBar";
 import FeedList from "./FeedList";
 import PostingButton from "./PostingButton";
@@ -57,7 +57,7 @@ function Feed({match}) {
             <FeedContainer>
                 <Line/>
                 <TopWrapper>
-                    {user&& <PostingButton category={category}/>}
+                    {user && <PostingButton category={category}/>}
                     <MdErrorOutline size={30} color='#40804F' style={{cursor: 'pointer'}} onClick={openModal}/>
                     <SortSelect value={sort} onChange={e => onChangeSort(e)}>
                         <option value="latest">최신순</option>
@@ -67,11 +67,17 @@ function Feed({match}) {
                 {isOpen ? <DescriptionModal closeModal={closeModal}/> : ''}
                 {post.length === 0 && <NoContent>loading...</NoContent>}
                 <FeedList category={category} post={post}/>
-                <ButtonWrapper>
-                    <Button onClick={onPrevClick}>previous</Button>
-                    <Button onClick={onNextClick}>next</Button>
-                </ButtonWrapper>
             </FeedContainer>
+            <ButtonWrapper>
+                <Button className="next_btn" onClick={onPrevClick}>
+                    <MdKeyboardArrowLeft size={30}/>
+                    Previous
+                </Button>
+                <Button className="next_btn" onClick={onNextClick}>
+                    Next
+                    <MdKeyboardArrowRight size={30}/>
+                </Button>
+            </ButtonWrapper>
         </div>
     );
 }
@@ -110,17 +116,17 @@ margin: 2vh 0;
 `;
 
 const ButtonWrapper = styled.div`
-margin:0 auto;
+margin: 3vh 0;
 display:flex;
- justify-content:space-between;
+align-items: center;
+justify-content: space-between;
 `;
 
 const Button = styled.button`
+text-align: center;
 width: 100px;
 height: 30px;
-border-radius: 30px;
-margin-left:10px;
-  color: white;
+  color: black;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
@@ -128,7 +134,7 @@ margin-left:10px;
   :focus {
     outline: none;
   }
-  background-color: gray;
+
 `;
 
 export default Feed;

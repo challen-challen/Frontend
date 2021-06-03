@@ -37,8 +37,8 @@ console.log(myFeed)
                 <div className="MyPage_UserFeed_container">
                     {myFeed.length === 0 && <div style={{textAlign:'center'}}>loading...</div>}
                 <ul className="MyPage_UserFeed_desc">
-                    {myFeed && myFeed.slice(0,4).map(({fileUrl})=>
-                       <li><img src={`${fileUrl}`} alt={fileUrl} /></li>
+                    {myFeed && myFeed.slice(0,4).map(({fileUrl},index)=>
+                       <li key={index}><img src={`${fileUrl}`} alt={fileUrl} /></li>
                     )}
                 </ul>
                 </div>

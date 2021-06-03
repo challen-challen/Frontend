@@ -7,8 +7,10 @@ function FeedItem({writer,likeNum ,_id ,title,category, image}) {
 
     return (
         <ItemContainer>
+        <Link to={`/challenge/${category}/${_id}`} style={{textDecoration:'none'}}>
         <Img src={image} alt="image"/>
-            <Title to={`/challenge/${category}/${_id}`}>{title}</Title>
+            <Title>{title}</Title>
+        </Link>
             <InfoContainer>
                     <div>{writer}</div>
                 <Wrapper>
@@ -27,7 +29,7 @@ width: 180px;
 height : 200px;
 margin: 1vh auto;
 `;
-const Title = styled(Link)`
+const Title = styled.div`
 width: 50%;
 height : 20px;
 overflow: hidden;
@@ -50,5 +52,6 @@ justify-content: space-between;
 `;
 const Wrapper = styled.div`
 display: flex;
+
 `;
 export default FeedItem;
