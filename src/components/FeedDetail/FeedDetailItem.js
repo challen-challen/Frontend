@@ -16,16 +16,16 @@ function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, 
 
     const onLikeClick = (e) => {
         if (likeToggle) {
-            axios.delete(`${process.env.API_SERVER}/api/like?postId=${_id}`, {withCredentials: true}).then(response => console.log(response))
+            axios.delete(`${process.env.REACT_APP_API_URL}/api/like?postId=${_id}`, {withCredentials: true}).then(response => console.log(response))
         } else {
-            axios.post('${process.env.API_SERVER}/api/like', LikeId, {withCredentials: true}).then(response => console.log(response))
+            axios.post(`${process.env.REACT_APP_API_URL}/api/like`, LikeId, {withCredentials: true}).then(response => console.log(response))
         }
         setLikeToggle(!likeToggle)
     }
 
     return (
         <FeedDetailContainer>
-            <Img src={`${process.env.API_SERVER}/${fileUrl}`} alt={_id}/>
+            <Img src={`${process.env.REACT_APP_API_URL}/${fileUrl}`} alt={_id}/>
             <InfoWrapper>
                 <User>
                     <div>{nickname}</div>
