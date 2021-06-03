@@ -6,7 +6,7 @@ import axios from "axios";
 function CommentItem({writer, date, content, id, deleteComment}) {
     const strDate = (moment(date).format('YYYY-MM-DD h:mm a'))
     const onDelete = async () =>{
-        await  axios.delete(`http://localhost:5000/api/comments/${id}`,{withCredentials:true})
+        await  axios.delete(`${process.env.API_SERVER}/api/comments/${id}`,{withCredentials:true})
             .then(
                 deleteComment(id)
             )

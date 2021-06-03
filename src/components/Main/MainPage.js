@@ -9,7 +9,7 @@ import axios from "axios";
 function MainPage() {
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/setUser', {withCredentials: true}).then(
+        axios.get(`${process.env.API_SERVER}/api/setUser`, {withCredentials: true}).then(
             (response) => {
                 sessionStorage.setItem('user', response.data.user._id)
             }

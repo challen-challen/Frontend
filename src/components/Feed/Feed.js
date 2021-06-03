@@ -22,7 +22,7 @@ function Feed({match}) {
     const category = match.params.category;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/challen/posts?category=${category}&sort=${sort}&skip=${skip}`).then(
+        axios.get(`${process.env.API_SERVER}/api/challen/posts?category=${category}&sort=${sort}&skip=${skip}`).then(
             response => {
                 console.log(response);
                 setPost(response.data.posts)
