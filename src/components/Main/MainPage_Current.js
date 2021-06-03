@@ -35,7 +35,7 @@ function MainPage_Current() {
 
     return (
         <>
-            { isLoading ? (<div>loading...</div>) : (
+            { isLoading ? (<div style={{height:'214px', textAlign:'center', marginTop:'10vh'}}>loading...</div>) : (
 
                 <div className="MainPage_Current">
                     <div className="MainPage_Current_title">

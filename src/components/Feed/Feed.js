@@ -65,7 +65,7 @@ function Feed({match}) {
                     </SortSelect>
                 </TopWrapper>
                 {isOpen ? <DescriptionModal closeModal={closeModal}/> : ''}
-                {post.length === 0 && <NoContent>loading...</NoContent>}
+                {post.length === 0 && <NoContent>게시물이없습니다.</NoContent>}
                 <FeedList category={category} post={post}/>
             </FeedContainer>
             <ButtonWrapper>
