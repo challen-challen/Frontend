@@ -8,7 +8,9 @@ function FeedItem({writer,likeNum ,_id ,title,category, image}) {
     return (
         <ItemContainer>
         <Link to={`/challenge/${category}/${_id}`} style={{textDecoration:'none'}}>
+            <div style={{height:'150px'}}>
         <Img src={`${process.env.REACT_APP_API_URL}/${image}`} alt="image"/>
+            </div>
             <Title>{title}</Title>
         </Link>
             <InfoContainer>
