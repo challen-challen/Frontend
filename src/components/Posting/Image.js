@@ -71,10 +71,12 @@ function FileUpload({postContent, setPostContent}) {
       >
        
           <div>
-            <img
-              style={{ minWidth: "150px", width: "150px", height: "150px" }}
-              src={attachment}
-            />
+              {postContent.fileUrl &&
+              <img
+                  style={{minWidth: "150px", width: "150px", height: "150px"}}
+                  src={attachment}
+              />
+              }
           </div>
     
       </div>)

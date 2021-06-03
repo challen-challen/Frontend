@@ -93,6 +93,27 @@ function Posting({match, history}) {
     }
 
     const handleUpload = () => {
+        if(postContent.fileUrl === ''){
+            alert('인증사진을 추가해주세요')
+            return
+        }
+        if(postContent.title === '' || postContent.title.length > 100){
+            alert('제목을 100글자 이하로 입력해주세요')
+            return
+        }
+        if(postContent.plan === ''){
+            alert('실천방안을 선택해주세요')
+            return
+        }
+        if(postContent.plan==="etc"&& postContent.etcPlan=== ''){
+            alert('기타 실천방안을 입력해주세요')
+            return
+        }
+        if(postContent.content === '' || postContent.content.length<5){
+            alert('내용을 5글자 이상으로 입력해주세요')
+            return
+        }
+
         axios.post('http://localhost:5000/api/challen/posts', postContent, {withCredentials: true})
             .then(() => {
                     alert('챌린지 등록이 완료되었습니다.')
@@ -108,7 +129,7 @@ function Posting({match, history}) {
 
     useEffect(() => {
         if ( (postContent.category === 'resource' || postContent.category === 'traffic')&& postContent.plan !== '' && postContent.plan !== 'etc') {
-            axios.get(`http://localhost:5000/api/calculator?category=${postContent.category}&plan=${postContent.plan}`)
+            axios.get(`http://localhost:5000/api/calculator?category=${postContent.category}&plan=${postContent.plan}`,{withCredentials:true})
                 .then(response => {
                         setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
                     }
@@ -119,7 +140,7 @@ function Posting({match, history}) {
     console.log(postContent)
 
     const onCalculate = () => {
-        axios.get(`http://localhost:5000/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`)
+        axios.get(`http://localhost:5000/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`,{withCredentials:true})
             .then(response => {
                     setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
                 }

@@ -31,11 +31,6 @@ function FeedDetailItem({fileUrl, _id, nickname,date, content, title, likeNum}) 
                     <div>{nickname}</div>
                 </User>
                 <RightInfo>
-                    <Comment>
-                        <MdChatBubble  size={25} style={{marginRight: '1.5vw'}}/>
-                        <div>1개</div>
-                    </Comment>
-
                     {likeToggle ? (
                         <Like>
                         <button onClick={onLikeClick} style={{color: 'green', background:'white', borderRadius:'10px'}} ><ImEarth size={20} style={{marginRight: '1.5vw'}}/>click</button>
