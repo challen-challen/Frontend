@@ -9,7 +9,7 @@ function MainPage_Current() {
     const [currentList, setCurrentList] = useState()
     const [isLoading, setIsLoading] = useState(true);
     async function loadCurrent() {
-        await axios.get(`http://localhost:5000/api/challen`).then(
+        await axios.get(`${process.env.REACT_APP_API_URL}/api/challen`).then(
             res => {
                 setCurrentList(res.data);
                 setIsLoading(false);

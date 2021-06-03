@@ -11,7 +11,7 @@ function FeedDetail({match}) {
     const id = match.params.id;
 
     useEffect(()=>{
-        axios.get(`${process.env.API_SERVER}/api/challen/post/${id}`).then(response=> setData(response.data)).catch(error=>error)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/challen/post/${id}`).then(response=> setData(response.data)).catch(error=>error)
     },[id])
 
     return (
