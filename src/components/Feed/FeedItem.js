@@ -8,7 +8,7 @@ function FeedItem({writer,likeNum ,_id ,title,category, image}) {
     return (
         <ItemContainer>
         <Link to={`/challenge/${category}/${_id}`} style={{textDecoration:'none'}}>
-        <Img src={image} alt="image"/>
+        <Img src={`http://localhost:5000/${image}`} alt="image"/>
             <Title>{title}</Title>
         </Link>
             <InfoContainer>

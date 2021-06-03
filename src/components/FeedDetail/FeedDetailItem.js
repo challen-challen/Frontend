@@ -25,7 +25,7 @@ function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, 
 
     return (
         <FeedDetailContainer>
-            <Img src={fileUrl} alt={_id}/>
+            <Img src={`http://localhost:5000/${fileUrl}`} alt={_id}/>
             <InfoWrapper>
                 <User>
                     <div>{nickname}</div>
