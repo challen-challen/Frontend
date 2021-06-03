@@ -28,7 +28,7 @@ function MainPage_Current() {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 1500,
         arrows: false,
     };
 
@@ -45,22 +45,18 @@ function MainPage_Current() {
                         <div className="MainPage_Current_box">
                             <p>오늘 참여자 수</p>
                             <p>+{currentList.sumUserNum}명</p>
-                            <p>어제보다 00명 적어요</p>
                         </div>
                         <div className="MainPage_Current_box">
                             <p>총 챌린지 갯수</p>
                             <p>+{currentList.sumPostNum}개</p>
-                            <p>-</p>
                         </div>
                         <div className="MainPage_Current_box">
                             <p>오늘 챌린지 갯수</p>
                             <p>+{currentList.todayPostNum}개</p>
-                            <p>어제보다 00개 적어요</p>
                         </div>
                         <div className="MainPage_Current_box">
                             <p>오늘 참여자 수</p>
                             <p>+{currentList.sumUserNum}명</p>
-                            <p>어제보다 00명 적어요</p>
                         </div>
                         </Slider>
                     </div>

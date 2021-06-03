@@ -12,8 +12,8 @@ function PostingButton({category}) {
 
 const ButtonWrapper = styled(Link)`
  position: fixed;
-    left: 65%;
-  bottom: 50px;
+    left: 70%;
+  bottom: 30px;
   @media (max-width: 769px) {
     width: 100%;
   }

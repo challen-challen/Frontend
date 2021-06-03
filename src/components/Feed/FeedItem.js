@@ -7,7 +7,7 @@ function FeedItem({writer,fileUrl ,likes ,_id ,title,category, image}) {
 
     return (
         <ItemContainer>
-        <Img src={image} alt="image"/>)
+        <Img src={image} alt="image"/>
             <Title to={`/challenge/${category}/${_id}`}>{title}</Title>
             <InfoContainer>
                 <Wrapper>
@@ -18,7 +18,6 @@ function FeedItem({writer,fileUrl ,likes ,_id ,title,category, image}) {
                     <div>{likes}</div>
                 </Wrapper>
             </InfoContainer>
-
         </ItemContainer>
     );
 }
@@ -27,10 +26,13 @@ const ItemContainer = styled.div`
 display: flex;
 flex-direction: column;
 width: 180px;
+height : 200px;
+
 margin: 1vh auto;
 `;
 const Title = styled(Link)`
 width: 50%;
+height : 20px;
 overflow: hidden;
 text-overflow: ellipsis;
 width: 100%;
@@ -40,7 +42,8 @@ color: black;
 font-weight: bold;
 `;
 const Img = styled.img`
-width: 100%;
+width: 150px;
+height:150px;
 border-radius: 5px;
 margin-bottom: 1vh;
 `;

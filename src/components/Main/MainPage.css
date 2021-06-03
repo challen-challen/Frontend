@@ -21,7 +21,7 @@ li {
     margin-top: 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid;
-    background-color:rgb(245, 245, 219, 0.2);
+ 
 }
 
 .MainPage_Current_title {
@@ -56,11 +56,14 @@ li {
 
 
 .MainPage_Current_box {
+    display: flex;
+    align-items: center;
     text-align: center;
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(61, 88, 24, 0.5);
     width: 30%;
     height: 130px;
     border-radius: 10%;
+    margin-right: 10px;
 }
 
 .MainPage_Current_box p {
@@ -74,15 +77,12 @@ li {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.MainPage_Current_box p:nth-child(2) {
+.MainPage_Current_box p:last-child {
     font-size: 25px;
     font-weight: 600;
 }
 
-.MainPage_Current_box p:last-child {
-    font-size: 10px;
-    color: rgba(0, 0, 0, 0.5);
-}
+
 
 
 /*시직하가 화면*/
@@ -227,7 +227,7 @@ border-radius: 22px;
 
 
 .MainPage_Charts_title {
-    display: flex;
+   
     align-items: center;
     margin: 30px 1vw 0 1vw;
     font-weight: 600;

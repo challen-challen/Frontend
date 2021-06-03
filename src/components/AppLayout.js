@@ -4,19 +4,31 @@ import Header from './Header';
 import Footer from './Footer';
 
 const AppLayout = ({ children }) => (
+
     <Container>
         <Header />
         <div>{children}</div>
         <Footer />
     </Container>
+
 );
+const Pc = styled.div`
+ 
+`;
+
 const Container = styled.div`
   background-color: white;
-  @media (max-width: 769px) {
-    width: 100%;
-  }
-  width: 650px;
   margin: 0 auto;
+  width: 380px;
+  border:2px solid black;
+  @media all and (min-width: 1200px) { 
+    margin: 0 55vw;
+   }
+   @media all and (max-width: 380px) { 
+    width: 100%;
+   }
+
+
 `;
 
 export default AppLayout;

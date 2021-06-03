@@ -15,12 +15,10 @@ function FeedList({category, post}) {
 
 const FeedListWrapper=styled.div`
 display: grid;
-  @media (max-width: 769px) {
-grid-template-columns: repeat(auto-fill, minmax(38%, auto));
-  }
-grid-template-columns: repeat(auto-fill, minmax(30%, auto));
-}
+grid-template-columns: repeat(2, minmax(30%, auto));
 width: 100%;
+height:100%;
+min-height:70vh;
 column-gap: 1vw;
 `;
 export default FeedList;

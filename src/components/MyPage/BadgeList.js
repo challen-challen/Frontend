@@ -17,14 +17,16 @@ const userBadge = [
     {text:'연속 30회 업로드', image: `${badge30}`},
 ]
 function BadgeList({badge}) {
-    if(badge.length !== 0) {
+   if(typeof badge!=='undefined'){
+     if(badge.length !== 0) {
         badge.forEach((item, index) => userBadge[index].image = item)
     }
+   }
     return (
         <div className="badgeList">
             <p>나의 뱃지</p>
             <div className="badgeItemContainer">
-                {userBadge.map(({text, image})=><BadgeItem key={text} text={text} image={image} /> )}
+                {userBadge && userBadge.map(({text, image})=><BadgeItem key={text} text={text} image={image} /> )}
             </div>
         </div>
     );

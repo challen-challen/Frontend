@@ -22,7 +22,7 @@ function MainPage() {
             <MainPage_Start/>
             <MainPage_Info/>
             <MainPage_Charts/>
-            <MainPage_Challenge/>
+           {/* <MainPage_Challenge/>*/}
         </div>
     )
 }

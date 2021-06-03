@@ -63,7 +63,7 @@ function Feed({match}) {
             </SortSelect>
             </TopWrapper>
             {isOpen? <DescriptionModal closeModal={closeModal} />:''}
-            {post.length === 0 && <NoContent>게시물이 없습니다.</NoContent>}
+            {post.length === 0 && <NoContent>wating..</NoContent>}
             <FeedList category={category} post={post}/>
             {category === 'all'?'': <PostingButton category={category} />}
             <ButtonWrapper>
@@ -119,8 +119,9 @@ display:flex;
 const Button = styled.button`
 
 width: 100px;
-height: 40px;
-border-radius: 20px;
+height: 30px;
+border-radius: 30px;
+margin-left:10px;
   color: white;
   font-weight: 700;
   font-size: 1rem;
