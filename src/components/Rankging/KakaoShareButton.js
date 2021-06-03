@@ -43,11 +43,12 @@ const KakaoShareButton = () => {
     }
   }
   return (
-    <div className="kakao-share-button" >
+    <div className="kakao-share-button" style={{display:'flex', flexDirection:'column', alignItems:'center', margin:'10px 0'}}>
       {/* Kakao share button */}
-      <button id="kakao-link-btn" style={{cursor:'pointer'}}>
+      <button id="kakao-link-btn" style={{cursor:'pointer', border:'none', background:'none'}}>
       <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"  style={{ width: '50px' }}/>
       </button>
+      <div style={{fontWeight:'bold'}}>랭킹 자랑하기</div>
     </div>
   )
 }

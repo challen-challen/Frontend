@@ -4,6 +4,7 @@ import NavBar from "../Feed/NavBar";
 import FeedDetailItem from './FeedDetailItem'
 import Comment from "./Comment";
 import axios from "axios";
+import Loading from "../Loading/Loading";
 
 function FeedDetail({match}) {
     const[data, setData] = useState([])
@@ -17,6 +18,7 @@ function FeedDetail({match}) {
         <DetailContainer>
             <NavBar/>
             <Line/>
+            {data.length === 0 && <Loading />}
             <div style={{width: '92%', margin:'0 auto'}} >
                 {data?.writer &&  <FeedDetailItem _id={data._id} nickname={data.writer.nickname} fileUrl={data.fileUrl}  date={data.createAt} title={data.title} content={data.content} likeNum={data.likeNum} /> }
                 {data?.comments && <Comment comments={data.comments} id={id}/> }
