@@ -6,8 +6,8 @@ function FeedList({category, post}) {
 
     return (
         <FeedListWrapper>
-            {post.map(({writer,fileUrl ,likes ,_id ,title})=>
-                <FeedItem image={fileUrl} writer={writer.nickname} likes={likes} key={_id} title={title}  category={category} _id={_id}/>
+            {post.map(({writer,fileUrl ,likeNum ,_id ,title})=>
+                <FeedItem image={fileUrl} writer={writer.nickname} likeNum={likeNum} key={_id} title={title}  category={category} _id={_id}/>
             )}
         </FeedListWrapper>
     );

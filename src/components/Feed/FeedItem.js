@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {ImEarth} from "react-icons/im"
 
-function FeedItem({writer,fileUrl ,likes ,_id ,title,category, image}) {
+function FeedItem({writer,likeNum ,_id ,title,category, image}) {
 
     return (
         <ItemContainer>
@@ -13,7 +13,7 @@ function FeedItem({writer,fileUrl ,likes ,_id ,title,category, image}) {
                     <div>{writer}</div>
                 <Wrapper>
                     <ImEarth size={20} style={{marginRight:'1.5vw'}}/>
-                    <div>{likes}</div>
+                    <div>{likeNum}개</div>
                 </Wrapper>
             </InfoContainer>
         </ItemContainer>

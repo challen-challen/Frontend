@@ -12,6 +12,9 @@ function Comment({comments, id}) {
         setComment(e.target.value)
     }
     const addComment = () => {
+        if(!writer){
+            alert('로그인 후 댓글 작성해주세요.')
+        }
         if (!comment) {
             alert('댓글을 입력해주세요')
             return
