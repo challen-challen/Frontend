@@ -194,8 +194,10 @@ function Posting({match, history}) {
                 </div>
                 }
                 {postContent.reducedCarbon && <div className="reduce_carcon"><strong
-                    style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{postContent.reducedCarbon}</strong>mg 만큼의 탄소를
-                    감량했습니다</div>}
+                    style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{postContent.reducedCarbon}</strong>mg 만큼의
+                    <p>탄소를
+                    감량했습니다
+                    </p></div>}
                 <div className="Posting_btn">
                     <button onClick={handleUpload}>등록하기</button>
                 </div>
