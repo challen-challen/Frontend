@@ -20,15 +20,12 @@ const Container = styled.div`
   background-color: white;
   margin: 0 auto;
   width: 380px;
-  border:2px solid black;
   @media all and (min-width: 1200px) { 
     margin: 0 55vw;
    }
    @media all and (max-width: 380px) { 
     width: 100%;
    }
-
-
 `;
 
 export default AppLayout;

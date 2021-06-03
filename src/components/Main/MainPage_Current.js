@@ -3,6 +3,7 @@ import axios from 'axios';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Loading from "../Loading/Loading";
 
 function MainPage_Current() {
     const [currentList, setCurrentList] = useState()
@@ -34,7 +35,7 @@ function MainPage_Current() {
 
     return (
         <>
-            { isLoading ? (<h1>loading</h1>) : (
+            { isLoading ? (<div>loading...</div>) : (
 
                 <div className="MainPage_Current">
                     <div className="MainPage_Current_title">

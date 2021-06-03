@@ -10,9 +10,7 @@ function FeedItem({writer,fileUrl ,likes ,_id ,title,category, image}) {
         <Img src={image} alt="image"/>
             <Title to={`/challenge/${category}/${_id}`}>{title}</Title>
             <InfoContainer>
-                <Wrapper>
                     <div>{writer}</div>
-                </Wrapper>
                 <Wrapper>
                     <ImEarth size={20} style={{marginRight:'1.5vw'}}/>
                     <div>{likes}</div>
@@ -27,7 +25,6 @@ display: flex;
 flex-direction: column;
 width: 180px;
 height : 200px;
-
 margin: 1vh auto;
 `;
 const Title = styled(Link)`
@@ -42,13 +39,12 @@ color: black;
 font-weight: bold;
 `;
 const Img = styled.img`
-width: 150px;
+width: 100%;
 height:150px;
 border-radius: 5px;
-margin-bottom: 1vh;
+margin-bottom: 1.2vh;
 `;
 const InfoContainer = styled.div`
-margin: 1vh 1vw;
 display: flex;
 justify-content: space-between;
 `;

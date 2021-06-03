@@ -15,7 +15,7 @@ function FeedList({category, post}) {
 
 const FeedListWrapper=styled.div`
 display: grid;
-grid-template-columns: repeat(2, minmax(30%, auto));
+grid-template-columns: 1fr 1fr;
 width: 100%;
 height:100%;
 min-height:70vh;

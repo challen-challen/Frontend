@@ -41,6 +41,7 @@ function NavBar() {
 const NavBarContainer = styled.div`
 margin-top: 2vh;
 text-align: center;
+width: 100%;
 `;
 const StyledLink = styled(NavLink)`
   text-decoration: none;
@@ -49,7 +50,7 @@ const StyledLink = styled(NavLink)`
   :hover {
      color: #40804F;
   }
-  margin:0 2vw;
+  margin:8px;
  font-size: 0.8rem;
 `;
 

@@ -9,10 +9,11 @@ import axios from "axios";
 
 
 function Feed({match}) {
+    const user = sessionStorage.getItem('user');
     const [post, setPost] = useState([])
     const [sort, setSort] = useState('latest')
     const [isOpen, setIsOpen] = useState(false);
-    const [skip, setSkip]=useState(0);
+    const [skip, setSkip] = useState(0);
 
     const onChangeSort = (e) => {
         setSort(e.target.value)
@@ -22,7 +23,7 @@ function Feed({match}) {
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/challen/posts?category=${category}&sort=${sort}&skip=${skip}`).then(
-            response =>{
+            response => {
                 console.log(response);
                 setPost(response.data.posts)
             }
@@ -33,44 +34,44 @@ function Feed({match}) {
     const openModal = () => {
         setIsOpen(true);
     }
-    const closeModal = () =>{
+    const closeModal = () => {
         setIsOpen(false)
     }
 
-    const onPrevClick=(e)=>{
-        if(skip!==0){
-        setSkip(skip-1)
-    }else{
-        window.alert("첫화면입니다.")
+    const onPrevClick = (e) => {
+        if (skip !== 0) {
+            setSkip(skip - 1)
+        } else {
+            window.alert("첫화면입니다.")
+        }
     }
-    }
-    const onNextClick=(e)=>{
-        if(post.length !== 0){
-        setSkip(skip+1)
-    }
+    const onNextClick = (e) => {
+        if (post.length !== 0) {
+            setSkip(skip + 1)
+        }
     }
 
     return (
         <div>
-        <NavBar/>
-        <FeedContainer>
-            <Line/>
-            <TopWrapper>
-            <MdErrorOutline size={30} color='#40804F' style={{cursor:'pointer'}} onClick={openModal}/>
-            <SortSelect value={sort} onChange={e => onChangeSort(e)}>
-                <option value="latest">최신순</option>
-                <option value="likes">인기순</option>
-            </SortSelect>
-            </TopWrapper>
-            {isOpen? <DescriptionModal closeModal={closeModal} />:''}
-            {post.length === 0 && <NoContent>wating..</NoContent>}
-            <FeedList category={category} post={post}/>
-            {category === 'all'?'': <PostingButton category={category} />}
-            <ButtonWrapper>
-            <Button onClick={onPrevClick}>previous</Button>
-            <Button onClick={onNextClick}>next</Button>
-            </ButtonWrapper>
-        </FeedContainer>
+            <NavBar/>
+            <FeedContainer>
+                <Line/>
+                <TopWrapper>
+                    {user&& <PostingButton category={category}/>}
+                    <MdErrorOutline size={30} color='#40804F' style={{cursor: 'pointer'}} onClick={openModal}/>
+                    <SortSelect value={sort} onChange={e => onChangeSort(e)}>
+                        <option value="latest">최신순</option>
+                        <option value="likes">인기순</option>
+                    </SortSelect>
+                </TopWrapper>
+                {isOpen ? <DescriptionModal closeModal={closeModal}/> : ''}
+                {post.length === 0 && <NoContent>loading...</NoContent>}
+                <FeedList category={category} post={post}/>
+                <ButtonWrapper>
+                    <Button onClick={onPrevClick}>previous</Button>
+                    <Button onClick={onNextClick}>next</Button>
+                </ButtonWrapper>
+            </FeedContainer>
         </div>
     );
 }
@@ -92,11 +93,12 @@ align-items: center;
 `;
 const SortSelect = styled.select`
  width: 80px;
-  height:20px;
+  height:25px;
   font-size:0.8rem;
   color: grey;
   line-height:20px;
   background: white;
+  margin-left: 1vw;
   
 `;
 const NoContent = styled.div`
@@ -108,16 +110,12 @@ margin: 2vh 0;
 `;
 
 const ButtonWrapper = styled.div`
-
-
 margin:0 auto;
-
 display:flex;
  justify-content:space-between;
 `;
 
 const Button = styled.button`
-
 width: 100px;
 height: 30px;
 border-radius: 30px;

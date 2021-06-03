@@ -12,6 +12,7 @@ function FeedDetail({match}) {
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/challen/post/${id}`).then(response=> setData(response.data)).catch(error=>error)
     },[id])
+
     return (
         <DetailContainer>
             <NavBar/>

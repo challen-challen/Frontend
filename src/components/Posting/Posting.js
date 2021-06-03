@@ -130,7 +130,7 @@ function Posting({match, history}) {
     return (
         <div className="Posting">
             <div className="Posting_title">
-                <p><strong style={{border: '1px solid #707070', padding: '1vh 1vw'}}>{date}</strong> 당신의 <strong
+                <p><strong style={{border: '1px solid #707070', padding: '0.5vh 0.5vw'}}>{date}</strong> 당신의 <strong
                     style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>작은 실천</strong>이 지구를 바꿉니다.</p>
             </div>
             <div className="Posting_cont">

@@ -3,21 +3,21 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 function PostingButton({category}) {
-    return (
-        <ButtonWrapper to={`/posting/${category}`}>
-           <Button type="button" value="참여하기" />
-        </ButtonWrapper>
-    );
+    console.log(category)
+    if (category === 'all')
+        return (<ButtonWrapper to='/posting/electricity'>
+            <Button type="button" value="참여하기"/>
+        </ButtonWrapper>)
+    else
+        return (
+            <ButtonWrapper to={`/posting/${category}`}>
+                <Button type="button" value="참여하기"/>
+            </ButtonWrapper>
+        );
 }
 
 const ButtonWrapper = styled(Link)`
- position: fixed;
-    left: 70%;
-  bottom: 30px;
-  @media (max-width: 769px) {
-    width: 100%;
-  }
-  width: 650px;
+  width: 380px;
 `;
 const Button = styled.input`
 width: 100px;

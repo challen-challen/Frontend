@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 
 import AppRouter from './Router';
-const user = true;
+const user = sessionStorage.getItem('user')
 
 function App() {
   return (
