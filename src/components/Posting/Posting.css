@@ -1,16 +1,18 @@
 .Posting {
     width: 95%;
     margin: 0 auto;
-    margin-bottom:110px;
+    margin-bottom: 110px;
 }
 
 .Posting_title {
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
-.Posting_title p{
+
+.Posting_title p {
     text-align: center;
 }
+
 .Posting_cont p {
     font-weight: 600;
 }
@@ -46,23 +48,26 @@
     height: 35px;
     margin-bottom: 1.5vh;
 }
-.minutes{
-width: 80%;
+
+.minutes {
+    width: 70%;
+    font-size: 0.8rem;
 }
-.cal_input{
+
+.cal_input {
     display: flex;
-   justify-content:space-between;
+    justify-content: space-between;
 }
+
 .cal_btn {
-    margin-left: 2vw;
-    width: 20%;
-    height: 35px;
-    background:white;
+    width: 25%;
+    height: 38px;
+    background: white;
     border: 1px solid;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 20px;
 }
+
 .Posting_btn {
     text-align: center;
     margin-top: 40px;
@@ -80,6 +85,7 @@ width: 80%;
     font-size: 1.2rem;
     margin-top: 7vh;
 }
+
 .Posting_btn button {
     margin-top: 10px;
     text-align: center;
