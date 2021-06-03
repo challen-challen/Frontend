@@ -20,7 +20,7 @@ function MainPage() {
         <div id="main_page">
             <MainPage_Current/>
             <MainPage_Start/>
-            <MainPage_Info/>
+            {/* <MainPage_Info/>*/}
             <MainPage_Charts/>
            {/* <MainPage_Challenge/>*/}
         </div>
