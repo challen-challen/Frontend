@@ -17,7 +17,7 @@ function Ranking() {
     const [isLoading, setIsLoading] = useState(true);
 
     async function loadRanking() {
-        await axios.get(`${process.env.API_SERVER}/api/ranking?monthlyCategory=${sortMonth}&dailyCategory=${sortDaily}`).then(
+        await axios.get(`${process.env.REACT_APP_API_SERVER}/api/ranking?monthlyCategory=${sortMonth}&dailyCategory=${sortDaily}`).then(
             res => {
                 setRankingList(res.data.result);
                 setIsLoading(false);
