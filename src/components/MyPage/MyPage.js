@@ -10,7 +10,7 @@ function MyPage() {
     const [myFeed, setMyFeed] = useState([])
     
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/mypage/posts`,  {withCredentials: true}).then(
+        axios.get(`${process.env.API_SERVER}/api/mypage/posts`,  {withCredentials: true}).then(
             response =>{
                 setMyFeed(response.data.userPosts.post)
             }
@@ -38,7 +38,7 @@ console.log(myFeed)
                     {myFeed.length === 0 && <div style={{textAlign:'center'}}>loading...</div>}
                 <ul className="MyPage_UserFeed_desc">
                     {myFeed && myFeed.slice(0,4).map(({fileUrl},index)=>
-                       <li key={index}><img src={`http://localhost:5000/${fileUrl}`} alt={fileUrl} /></li>
+                       <li key={index}><img src={`${process.env.API_SERVER}/${fileUrl}`} alt={fileUrl} /></li>
                     )}
                 </ul>
                 </div>
