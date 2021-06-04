@@ -1,18 +1,22 @@
 import React, {useState, useEffect} from 'react';
-import {ImEarth} from "react-icons/im";
 import styled from "styled-components";
 import moment from "moment";
 import axios from "axios";
 import {RiPlantFill} from "react-icons/ri";
+import {MdKeyboardTab} from "react-icons/md";
+import {getPlan} from "../util/getPlan";
 
-function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, reducedCarbon}) {
+function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, reducedCarbon,  plan}) {
     const strDate = (moment(date).format('YYYY-MM-DD h:mm a'))
+    const [strPlan, setStrPlan] = useState('')
     const [likeToggle, setLikeToggle] = useState(false)
     const LikeId = {postId: _id}
 
     useEffect(() => {
-
-    }, [likeNum])
+      if(plan){
+            setStrPlan(getPlan(plan))
+        }
+    }, [likeNum,plan])
 
     const onLikeClick = (e) => {
         if (likeToggle) {
@@ -49,6 +53,10 @@ function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, 
                 </RightInfo>
             </InfoWrapper>
             <Date>{strDate}</Date>
+             <div style={{display: 'flex', alignItems:'center'}}>
+            <MdKeyboardTab size={20} style={{marginRight:'1vw'}}/>
+            <div style={{fontWeight:'bold'}}>{strPlan&&strPlan}</div>
+            </div>
             <Title>{title}</Title>
             <Content>{content}</Content>
             {reducedCarbon && <ReduceCarbon>
