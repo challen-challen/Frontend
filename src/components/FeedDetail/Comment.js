@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import CommentItem from "./CommentItem";
 import axios from "axios";
-import {useSelector} from "react-redux";
 
 function Comment({comments, id}) {
-    const writer = useSelector(state=>state.user)
+    const writer = sessionStorage.getItem('user')
     const [commentsArray, setCommentsArray] = useState(comments);
     const [comment, setComment] = useState('');
     console.log(comments)
@@ -40,7 +39,7 @@ function Comment({comments, id}) {
         <CommentContainer>
             <Title>{commentsArray && commentsArray.length}개의 댓글</Title>
             {writer &&
-                <div>
+                <div style={{display:'flex', flexDirection:'column'}}>
                 <Textarea placeholder="댓글을 입력해주세요." value={comment} onChange={onChangeComment}/>
                 <Button type="button" value="댓글 작성" onClick={addComment}/>
                 <Line/>

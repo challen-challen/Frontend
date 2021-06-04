@@ -68,6 +68,10 @@ function Posting({match, history}) {
                 reducedCarbon: ''
             })
         } else {
+            setPostContent({
+                ...postContent,
+                reducedCarbon: ''
+            })
             setEtc(false)
         }
         setMin('')
