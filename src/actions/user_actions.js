@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setUserTemp = () => async dispatch => {
     try{
-       await axios.get(`http://localhost:5000/api/setUser`, {withCredentials: true})
+       await axios.get(`https://api.challenchallen.com/api/setUser`, {withCredentials: true})
             .then(response => {
                 console.log(response)
                 sessionStorage.setItem('user', response.data.user._id)
@@ -19,7 +19,7 @@ export const setUserTemp = () => async dispatch => {
 
 export const logout = ()=> async dispatch =>{
     try{
-        await axios.get(`http://localhost:5000/api/logout`,{withCredentials:true}).then(response=>
+        await axios.get(`https://api.challenchallen.com/api/logout`,{withCredentials:true}).then(response=>
         {
         sessionStorage.clear();
         dispatch({type: LOGOUT, payload: response.data})

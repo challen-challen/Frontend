@@ -114,7 +114,7 @@ function Posting({match, history}) {
             return
         }
 
-        axios.post(`${process.env.REACT_APP_API_SERVER}/api/challen/posts`, postContent, {withCredentials: true})
+        axios.post(`https://api.challenchallen.com/api/challen/posts`, postContent, {withCredentials: true})
             .then(() => {
                     alert('챌린지 등록이 완료되었습니다.')
                     history.push('/challenge/all')
@@ -129,7 +129,7 @@ function Posting({match, history}) {
 
     useEffect(() => {
         if ( (postContent.category === 'resource' || postContent.category === 'traffic')&& postContent.plan !== '' && postContent.plan !== 'etc') {
-            axios.get(`${process.env.REACT_APP_API_SERVER}/api/calculator?category=${postContent.category}&plan=${postContent.plan}`,{withCredentials:true})
+            axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}`,{withCredentials:true})
                 .then(response => {
                         setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
                     }
@@ -140,7 +140,7 @@ function Posting({match, history}) {
     console.log(postContent)
 
     const onCalculate = () => {
-        axios.get(`${process.env.REACT_APP_API_SERVER}/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`,{withCredentials:true})
+        axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`,{withCredentials:true})
             .then(response => {
                     setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
                 }

@@ -10,7 +10,7 @@ function MyPage() {
     const [myFeed, setMyFeed] = useState([])
     
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/api/mypage/posts`,  {withCredentials: true}).then(
+        axios.get(`https://api.challenchallen.com/api/mypage/posts`,  {withCredentials: true}).then(
             response =>{
                 setMyFeed(response.data.userPosts.post)
             }
