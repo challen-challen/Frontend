@@ -49,7 +49,6 @@ function Posting({match, history}) {
             title: '',
             plan: '',
             content: '',
-            fileUrl: '',
             etcPlan: '',
             reducedCarbon: ''
         })

@@ -55,7 +55,7 @@ function FileUpload({postContent, setPostContent}) {
 
             >
                 <label htmlFor="input-file">
-                    <AiOutlinePlus size={60}/>
+                    <AiOutlinePlus size={60} style={{cursor:'pointer'}}/>
                 </label>
                 <input id="input-file" style={{opacity: 0, width: 0,}} type="file" accept="image/*" ref={fileInput}
                        onChange={onImgChange}/>
@@ -75,7 +75,7 @@ function FileUpload({postContent, setPostContent}) {
                     {postContent.fileUrl &&
                     <img
                         style={{minWidth: "150px", width: "150px", height: "150px"}}
-                        src={`${process.env.API_SERVER}/${attachment}`}
+                        src={`https://api.challenchallen.com/${attachment}`}
                     />
                     }
                 </div>

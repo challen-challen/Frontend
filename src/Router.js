@@ -13,13 +13,13 @@ import Login from "./components/Login/Login";
 function LoginRoutes() {
     return (
         <Switch>
-            <Route exact path="/" component={MainPage}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/" component={MainPage}/>
+            <Route exact path="/mypage" component={MyPage}/>
+            <Route exact path="/posting/:category" component={Posting}/>
             <Route exact path="/challenge/:category" component={Feed}/>
             <Route path="/challenge/:category/:id" component={FeedDetail}/>
-             <Route path="/ranking" component={Ranking}/>
-             <Route exact path="/mypage" component={MyPage}/>
-            <Redirect from="*" to="/"/>
+            <Route path="/ranking" component={Ranking}/>
         </Switch>
     )
 }
