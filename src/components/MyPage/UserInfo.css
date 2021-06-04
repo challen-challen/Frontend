@@ -10,7 +10,7 @@
 }
 
 .userInfo .infoContainer {
-    width: 90%;
+    width: 80%;
     margin: 2vh auto;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,10 @@
 .userInfo .infoContainer li {
     font-size: 1rem;
     margin: 1vh 0;
+    display: flex;
+}
+.userInfo .infoContainer li p {
+    width: 50%;
 }
 .userInfo .infoContainer #user{
     display: flex;
