@@ -9,7 +9,7 @@ import axios from "axios";
 function MainPage() {
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/api/setUser`, {withCredentials: true}).then(
+        axios.get(`https://api.challenchallen.com/api/setUser`, {withCredentials: true}).then(
             (response) => {
                 sessionStorage.setItem('user', response.data.user._id)
             }

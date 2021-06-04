@@ -26,7 +26,7 @@ function FileUpload({postContent, setPostContent}) {
                 withCredentials: true
             }
             formData.append('images', event.target.files[0]);
-            axios.post(`${process.env.REACT_APP_API_SERVER}/api/challen/upload`, formData, config)
+            axios.post(`https://api.challenchallen.com/api/challen/upload`, formData, config)
                 .then(response => {
                         setAttachment(response.data[0])
                     setPostContent({...postContent,

@@ -24,7 +24,7 @@ function Comment({comments, id}) {
             writer,
             content: comment,
         }
-        axios.post(`${process.env.REACT_APP_API_URL}/api/comments`, body, {withCredentials: true})
+        axios.post(`https://api.challenchallen.com/api/comments`, body, {withCredentials: true})
             .then(response => {
                 console.log(response)
                 const newComments = commentsArray.concat(response.data.comment)
