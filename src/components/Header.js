@@ -28,8 +28,7 @@ function Header() {
                     color: "#40804F",
                     width: '23px'
                 }}/></Link>
-            </div> : <a href={`https://api.challenchallen.com/api/kakao`} id="login_btn">로그인</a>}
-
+            </div> : <Link to="/login" id="login_btn">로그인</Link>}
         </div>
     )
 }

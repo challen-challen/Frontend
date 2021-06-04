@@ -7,14 +7,18 @@ import Feed from "./components/Feed/Feed";
 import FeedDetail from "./components/FeedDetail/FeedDetail";
 import Ranking from "./components/Rankging/Ranking";
 import AppLayout from "./components/AppLayout";
+import Login from "./components/Login/Login";
 
 
 function LoginRoutes() {
     return (
         <Switch>
             <Route exact path="/" component={MainPage}/>
+            <Route exact path="/login" component={Login}/>
             <Route exact path="/challenge/:category" component={Feed}/>
             <Route path="/challenge/:category/:id" component={FeedDetail}/>
+            <Route exact path="/mypage" component={MyPage}/>
+            <Route path="/ranking" component={Ranking}/>
             <Redirect from="*" to="/"/>
         </Switch>
     )
