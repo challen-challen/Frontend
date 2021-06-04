@@ -1,5 +1,4 @@
 import React, {useState, useRef} from "react";
-import Dropzone from "react-dropzone";
 import {AiOutlinePlus} from 'react-icons/ai'
 import axios from "axios";
 

@@ -6,6 +6,7 @@ import Select from "./Select";
 import axios from "axios";
 
 function Posting({match, history}) {
+    const [submitFlag, setSubmitFlag] = useState(false)
     const writer = sessionStorage.getItem('user');
     const [date, setDate] = useState('');
     const urlCategory = match.params.category;
@@ -20,8 +21,8 @@ function Posting({match, history}) {
             fileUrl: '',
             title: '',
             plan: '',
-            etcPlan:'',
-            reducedCarbon:'',
+            etcPlan: '',
+            reducedCarbon: '',
             content: '',
 
         }
@@ -43,12 +44,16 @@ function Posting({match, history}) {
         if (postContent.category === 'resource') {
             setSelectPlan(resource)
             setCalculate(false)
+            setPostContent({
+                ...postContent,
+                plan: '',
+                etcPlan: '',
+                reducedCarbon: ''
+            })
         }
         setPostContent({
             ...postContent,
-            title: '',
             plan: '',
-            content: '',
             etcPlan: '',
             reducedCarbon: ''
         })
@@ -90,29 +95,36 @@ function Posting({match, history}) {
             plan: e.target.value
         })
     }
-
+    const doubleSubmitCheck = () => {
+        if (submitFlag) {
+            return submitFlag
+        } else {
+            setSubmitFlag(true);
+            return false;
+        }
+    }
     const handleUpload = () => {
-        if(postContent.fileUrl === ''){
+        if (postContent.fileUrl === '') {
             alert('인증사진을 추가해주세요')
             return
         }
-        if(postContent.title === '' || postContent.title.length > 100){
+        if (postContent.title === '' || postContent.title.length > 100) {
             alert('제목을 100글자 이하로 입력해주세요')
             return
         }
-        if(postContent.plan === ''){
+        if (postContent.plan === 'select') {
             alert('실천방안을 선택해주세요')
             return
         }
-        if(postContent.plan==="etc"&& postContent.etcPlan=== ''){
+        if (postContent.plan === "etc" && postContent.etcPlan === '') {
             alert('기타 실천방안을 입력해주세요')
             return
         }
-        if(postContent.content === '' || postContent.content.length<5){
+        if (postContent.content === '' || postContent.content.length < 5) {
             alert('내용을 5글자 이상으로 입력해주세요')
             return
         }
-
+        if (doubleSubmitCheck()) return;
         axios.post(`https://api.challenchallen.com/api/challen/posts`, postContent, {withCredentials: true})
             .then(() => {
                     alert('챌린지 등록이 완료되었습니다.')
@@ -127,8 +139,8 @@ function Posting({match, history}) {
     }, [])
 
     useEffect(() => {
-        if ( (postContent.category === 'resource' || postContent.category === 'traffic')&& postContent.plan !== '' && postContent.plan !== 'etc') {
-            axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}`,{withCredentials:true})
+        if ((postContent.category === 'resource' || postContent.category === 'traffic') && postContent.plan !== '' && postContent.plan !== 'etc') {
+            axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}`, {withCredentials: true})
                 .then(response => {
                         setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
                     }
@@ -139,18 +151,21 @@ function Posting({match, history}) {
     console.log(postContent)
 
     const onCalculate = () => {
-        axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`,{withCredentials:true})
+        axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`, {withCredentials: true})
             .then(response => {
                     setPostContent({...postContent, reducedCarbon: response.data.reducedCarcon})
                 }
             )
-
-
     }
     return (
         <div className="Posting">
             <div className="Posting_title">
-                <p style={{border: '1px solid #707070', padding: '0.5vh 0.5vw', width: '100px', margin:'1vh auto'}}>{date}</p>
+                <p style={{
+                    border: '1px solid #707070',
+                    padding: '0.5vh 0.5vw',
+                    width: '100px',
+                    margin: '1vh auto'
+                }}>{date}</p>
                 <p>당신의 <strong
                     style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>작은 실천</strong>이 지구를 바꿉니다.</p>
             </div>
@@ -196,7 +211,7 @@ function Posting({match, history}) {
                 {postContent.reducedCarbon && <div className="reduce_carcon"><strong
                     style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{postContent.reducedCarbon}</strong>mg 만큼의
                     <p>탄소를
-                    감량했습니다
+                        감량했습니다
                     </p></div>}
                 <div className="Posting_btn">
                     <button onClick={handleUpload}>등록하기</button>

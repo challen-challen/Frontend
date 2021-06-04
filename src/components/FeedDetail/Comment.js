@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import CommentItem from "./CommentItem";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 function Comment({comments, id}) {
-    const writer = localStorage.getItem('user')
+    const writer = useSelector(state=>state.user)
     const [commentsArray, setCommentsArray] = useState(comments);
     const [comment, setComment] = useState('');
     console.log(comments)
@@ -12,9 +13,6 @@ function Comment({comments, id}) {
         setComment(e.target.value)
     }
     const addComment = () => {
-        if(!writer){
-            alert('로그인 후 댓글 작성해주세요.')
-        }
         if (!comment) {
             alert('댓글을 입력해주세요')
             return
@@ -41,9 +39,13 @@ function Comment({comments, id}) {
     return (
         <CommentContainer>
             <Title>{commentsArray && commentsArray.length}개의 댓글</Title>
-            <Textarea placeholder="댓글을 입력해주세요." value={comment} onChange={onChangeComment}/>
-            <Button type="button" value="댓글 작성" onClick={addComment}/>
-            <Line/>
+            {writer &&
+                <div>
+                <Textarea placeholder="댓글을 입력해주세요." value={comment} onChange={onChangeComment}/>
+                <Button type="button" value="댓글 작성" onClick={addComment}/>
+                <Line/>
+                </div>
+            }
             {commentsArray && commentsArray.map(({_id, writer, content, createdAt}) =>
                 <CommentItem key={_id}
                              id={_id} writer={writer?.nickname} content={content} date={createdAt} deleteComment={deleteComment}/>)}
