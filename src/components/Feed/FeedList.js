@@ -6,8 +6,8 @@ function FeedList({category, post}) {
 
     return (
         <FeedListWrapper>
-            {post.map(({writer,fileUrl ,likeNum ,_id ,title})=>
-                <FeedItem image={fileUrl} writer={writer.nickname} likeNum={likeNum} key={_id} title={title}  category={category} _id={_id}/>
+            {post.map(({writer,fileUrl ,likeNum ,_id ,title, comments})=>
+                <FeedItem image={fileUrl} writer={writer.nickname} likeNum={likeNum} key={_id} title={title}  category={category} _id={_id} comments={comments}/>
             )}
         </FeedListWrapper>
     );
@@ -20,5 +20,6 @@ width: 100%;
 height:100%;
 min-height:70vh;
 column-gap: 1vw;
+row-gap: 2vh;
 `;
 export default FeedList;

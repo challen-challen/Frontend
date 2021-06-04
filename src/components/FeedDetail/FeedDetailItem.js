@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {MdChatBubble} from "react-icons/md";
 import {ImEarth} from "react-icons/im";
 import styled from "styled-components";
 import moment from "moment";
 import axios from "axios";
+import {RiPlantFill} from "react-icons/ri";
 
 function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, reducedCarbon}) {
     const strDate = (moment(date).format('YYYY-MM-DD h:mm a'))
@@ -33,19 +33,17 @@ function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, 
                 <RightInfo>
                     {likeToggle ? (
                         <Like>
-                            <button onClick={onLikeClick}
-                                    style={{color: 'green', background: 'white', borderRadius: '10px'}}><ImEarth
-                                size={20} style={{marginRight: '1.5vw'}}/>click
-                            </button>
-                            <div>{likeNum + 1}개</div>
+                            <LikeButton onClick={onLikeClick}>
+                                <RiPlantFill size={30} color="#40804F" />
+                            </LikeButton>
+                            <div> {likeNum + 1}개 </div>
                         </Like>
                     ) : (
                         <Like>
-                            <button onClick={onLikeClick}
-                                    style={{color: 'red', background: 'white', borderRadius: '10px'}}><ImEarth size={20}
-                                                                                                               style={{marginRight: '1.5vw'}}/>click
-                            </button>
-                            <div>{likeNum}개</div>
+                            <LikeButton onClick={onLikeClick}>
+                                <RiPlantFill size={30}/>
+                            </LikeButton>
+                            <div> {likeNum}개 </div>
                         </Like>
                     )}
                 </RightInfo>
@@ -81,6 +79,7 @@ margin: 2vh 0;
 const Img = styled.img`
 margin: 0 auto;
 width: 80%;
+height: 300px;
 border-radius: 5px;
 `;
 const User = styled.div`
@@ -93,16 +92,17 @@ font-size: 1.3rem;
 const RightInfo = styled.div`
 display: flex;
 `;
-const Comment = styled.div`
-display: flex;
-align-items: center;
-margin-right: 2vw;
-`;
-
 const Like = styled.div`
 display: flex;
 align-items: center;
+opacity: 0.7;
 `;
+const LikeButton = styled.button`
+cursor: pointer;
+background-color: white;
+border: none;
+`;
+
 const Date = styled.div`
 margin-right: auto;
 margin-bottom: 1vh;

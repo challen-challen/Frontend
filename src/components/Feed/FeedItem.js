@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import {ImEarth} from "react-icons/im"
+import {RiPlantFill,RiChat1Line} from 'react-icons/ri'
 
-function FeedItem({writer,likeNum ,_id ,title,category, image}) {
+function FeedItem({writer,likeNum ,_id ,title,category, image, comments}) {
 
     return (
         <ItemContainer>
@@ -15,11 +15,13 @@ function FeedItem({writer,likeNum ,_id ,title,category, image}) {
         </Link>
             <InfoContainer>
                     <div>{writer}</div>
-                <Wrapper>
-                    <ImEarth size={20} style={{marginRight:'1.5vw'}}/>
-                    <div>{likeNum}개</div>
-                </Wrapper>
             </InfoContainer>
+            <Wrapper>
+                <RiChat1Line size={20}/>
+                <div style={{marginRight:'1vw'}}>{comments?.length}개</div>
+                <RiPlantFill size={20} style={{marginRight:'0.5vw'}}/>
+                <div>{likeNum}개</div>
+            </Wrapper>
         </ItemContainer>
     );
 }
@@ -29,7 +31,7 @@ display: flex;
 flex-direction: column;
 width: 180px;
 height : 200px;
-margin: 1vh auto;
+margin: 2.5vh auto;
 `;
 const Title = styled.div`
 width: 50%;
@@ -41,6 +43,7 @@ white-space: nowrap;
 text-decoration: none;
 color: black;
 font-weight: bold;
+margin: 1vh 0;
 `;
 const Img = styled.img`
 width: 100%;
@@ -54,6 +57,8 @@ justify-content: space-between;
 `;
 const Wrapper = styled.div`
 display: flex;
-
+align-items: center;
+opacity: 0.5;
+margin: 1vh 0;
 `;
 export default FeedItem;

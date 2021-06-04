@@ -17,7 +17,7 @@ function Ranking() {
     const [isLoading, setIsLoading] = useState(true);
 
     async function loadRanking() {
-        await axios.get(`${process.env.REACT_APP_API_SERVER}/api/ranking?monthlyCategory=${sortMonth}&dailyCategory=${sortDaily}`).then(
+        await axios.get(`http://localhost:5000/api/ranking?monthlyCategory=${sortMonth}&dailyCategory=${sortDaily}`).then(
             res => {
                 setRankingList(res.data.result);
                 setIsLoading(false);
@@ -167,6 +167,10 @@ const Name = styled.div`
 text-align: center;
 font-weight: bold;
 font-size: 1rem;
+width: 100px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 `;
 const Like = styled.div`
 font-weight: bold;
