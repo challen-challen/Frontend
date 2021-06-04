@@ -8,6 +8,7 @@ function Header() {
     const user = useSelector(state => state.user.user)
     useEffect(() => {
     }, [user])
+    console.log(user)
     return (
         <div className="header">
             <Link to="/"><img src="/images/logo.png" alt="logo" style={{marginLeft: '10px'}}/></Link>
@@ -28,7 +29,7 @@ function Header() {
                     color: "#40804F",
                     width: '23px'
                 }}/></Link>
-            </div> : <a href="http://localhost:5000/api/naver" id="login_btn">로그인</a>}
+            </div> : <a href="https://api.challenchallen.com/api/kakao" id="login_btn">로그인</a>}
 
         </div>
     )
