@@ -10,20 +10,24 @@
 }
 
 .userInfo .infoContainer {
-    width: 60%;
+    width: 90%;
     margin: 2vh auto;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .userInfo .infoContainer li {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1rem;
+    margin: 1vh 0;
 }
-
+.userInfo .infoContainer #user{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 .userInfo .infoContainer input{
     width: 100px;
     cursor: pointer;
-    margin: auto 0;
+    margin: 3vh auto 0 auto;
 }
