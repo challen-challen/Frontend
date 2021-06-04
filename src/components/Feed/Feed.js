@@ -10,6 +10,7 @@ import axios from "axios";
 
 function Feed({match}) {
     const user = sessionStorage.getItem('user');
+    const[loading, setLoading] = useState(true);
     const [post, setPost] = useState([])
     const [sort, setSort] = useState('latest')
     const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +66,8 @@ function Feed({match}) {
                     </SortSelect>
                 </TopWrapper>
                 {isOpen ? <DescriptionModal closeModal={closeModal}/> : ''}
-                {post.length === 0 && <NoContent>게시물이없습니다.</NoContent>}
+                {loading && <NoContent>loading...</NoContent>}
+                {!loading && post.length === 0 && <NoContent>게시물이없습니다.</NoContent>}
                 <FeedList category={category} post={post}/>
             </FeedContainer>
             <ButtonWrapper>
