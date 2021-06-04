@@ -28,7 +28,7 @@ function Header() {
                     color: "#40804F",
                     width: '23px'
                 }}/></Link>
-            </div> : <a href={`${process.env.REACT_APP_API_URL}/api/kakao`} id="login_btn">로그인</a>}
+            </div> : <a href={`http://localhost:5000/api/kakao`} id="login_btn">로그인</a>}
 
         </div>
     )
