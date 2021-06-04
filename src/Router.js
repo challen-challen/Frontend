@@ -36,7 +36,7 @@ function HomeRoutes() {
 function AppRouter({user}) {
     return (
         <Router>
-            <switch>
+            <Switch>
             {user ?
                 (<AppLayout>
                     <HomeRoutes/>
@@ -44,7 +44,7 @@ function AppRouter({user}) {
                 <AppLayout>
                     <LoginRoutes/>
                 </AppLayout>}
-            </switch>
+            </Switch>
         </Router>
     )
 }
