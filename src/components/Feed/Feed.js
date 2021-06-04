@@ -25,12 +25,11 @@ function Feed({match}) {
     useEffect(() => {
         axios.get(`https://api.challenchallen.com/api/challen/posts?category=${category}&sort=${sort}&skip=${skip}`).then(
             response => {
-                console.log(response);
+                setLoading(false)
                 setPost(response.data.posts)
             }
         ).then(error => error)
     }, [category, sort, skip])
-    console.log(skip)
 
     const openModal = () => {
         setIsOpen(true);
