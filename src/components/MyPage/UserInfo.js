@@ -19,9 +19,9 @@ function UserInfo({user}) {
             <p>유저 정보</p>
             <ul className="infoContainer">
                 <li id="user"><MdAccountCircle size={30} style={{marginRight:'1vw'}}/>{user && user.nickname}</li>
-                <li>총 탄소 감량량: <strong  style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{user?.reducedCarbon?.allAmount}+ mg</strong></li>
-                <li>오늘의 감량량: <strong  style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{user?.reducedCarbon?.dailyAmount}</strong></li>
-                <li>참여한 챌린지 수:<strong  style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{user?.post && user.post.length}개</strong></li>
+                <li><p>총 탄소 감량량: </p><strong  style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{user?.reducedCarbon?.allAmount}+ mg</strong></li>
+                <li><p>오늘의 감량량: </p><strong  style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{user?.reducedCarbon?.dailyAmount}</strong></li>
+                <li><p>참여한 챌린지 수: </p><strong  style={{backgroundColor: 'rgba(64,124,79,0.2)'}}>{user?.post && user.post.length}개</strong></li>
                 <input type="button" value="로그아웃" onClick={handleLogout}/>
             </ul>
         </div>
