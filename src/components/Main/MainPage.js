@@ -5,15 +5,13 @@ import MainPage_Current from './MainPage_Current'
 import MainPage_Info from './MainPage_Info'
 import MainPage_Start from './MainPage_Start'
 import axios from "axios";
+import {useDispatch} from "react-redux";
+import {setUserTemp} from "../../actions/user_actions";
 
 function MainPage() {
-
+const dispatch = useDispatch();
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/api/setUser`, {withCredentials: true}).then(
-            (response) => {
-                sessionStorage.setItem('user', response.data.user._id)
-            }
-        ).then(error => error)
+     dispatch(setUserTemp())
     }, [])
 
     return (
