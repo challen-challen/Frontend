@@ -20,7 +20,7 @@ function FeedDetail({match}) {
             <Line/>
             {data.length === 0 && <Loading />}
             <div style={{width: '92%', margin:'0 auto'}} >
-                {data?.writer &&  <FeedDetailItem _id={data._id} nickname={data.writer.nickname} fileUrl={data.fileUrl}  date={data.createAt} title={data.title} content={data.content} likeNum={data.likeNum} reducedCarbon={data.reducedCarbon}/> }
+                {data?.writer &&  <FeedDetailItem _id={data._id} nickname={data.writer.nickname} fileUrl={data.fileUrl}  date={data.createAt} title={data.title} content={data.content} likeNum={data.likeNum} reducedCarbon={data.reducedCarbon}  plan={data.plan}/>  }
                 {data?.comments && <Comment comments={data.comments} id={id}/> }
             </div>
         </DetailContainer>
