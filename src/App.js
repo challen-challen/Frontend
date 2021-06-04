@@ -1,10 +1,9 @@
 import React from 'react'
 import './App.css';
-
 import AppRouter from './Router';
-const user = sessionStorage.getItem('user')
 
 function App() {
+    const user = sessionStorage.getItem('user')
   return (
     <div className="App">
         
