@@ -17,8 +17,8 @@ function LoginRoutes() {
             <Route exact path="/login" component={Login}/>
             <Route exact path="/challenge/:category" component={Feed}/>
             <Route path="/challenge/:category/:id" component={FeedDetail}/>
-            <Route exact path="/mypage" component={MyPage}/>
-            <Route path="/ranking" component={Ranking}/>
+             <Route path="/ranking" component={Ranking}/>
+             <Route exact path="/mypage" component={MyPage}/>
             <Redirect from="*" to="/"/>
         </Switch>
     )
