@@ -7,11 +7,7 @@ function Login() {
     return (
         <div className="login_container">
             <div id="title">로그인</div>
-            <button className="naver_button">
-            <a href={`https://api.challenchallen.com/api/naver`}>
-                <img src={naverBtn} alt="naver_btn"/>
-            </a>
-            </button>
+
             <button className="kakao_button">
                 <BsChatFill size={25} style={{marginRight:'1vw'}}/>
             <a href={`https://api.challenchallen.com/api/kakao`}>

@@ -61,7 +61,7 @@ function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, 
             <Content>{content}</Content>
             {reducedCarbon && <ReduceCarbon>
                 <CarbonNumber>{reducedCarbon}</CarbonNumber>
-                mg 탄소를 감량하였습니다.
+                g 탄소를 감량하였습니다.
             </ReduceCarbon>}
             <Line/>
         </FeedDetailContainer>
