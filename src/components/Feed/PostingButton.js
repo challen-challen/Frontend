@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 function PostingButton({category}) {
-    console.log(category)
     if (category === 'all')
         return (<ButtonWrapper to='/posting/electricity'>
             <Button type="button" value="참여하기"/>

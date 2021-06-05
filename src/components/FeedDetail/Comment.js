@@ -7,7 +7,7 @@ function Comment({comments, id}) {
     const writer = sessionStorage.getItem('user')
     const [commentsArray, setCommentsArray] = useState(comments);
     const [comment, setComment] = useState('');
-    console.log(comments)
+
     const onChangeComment = (e) => {
         setComment(e.target.value)
     }
@@ -19,11 +19,11 @@ function Comment({comments, id}) {
         const body = {
             postId: `${id}`,
             writer,
+
             content: comment,
         }
         axios.post(`https://api.challenchallen.com/api/comments`, body, {withCredentials: true})
             .then(response => {
-                console.log(response)
                 const newComments = commentsArray.concat(response.data.comment)
                 setCommentsArray(newComments)
                 alert('댓글이 등록되었습니다.')

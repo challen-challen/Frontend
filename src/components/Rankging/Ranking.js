@@ -42,11 +42,9 @@ function Ranking() {
 
     const onChangeSortMonth = (e) => {
         setSortMonth(e.target.value)
-        console.log(e.target.value)
     }
     const onChangeSortDaily = (e) => {
         setSortDaily(e.target.value)
-        console.log(e.target.value)
     }
 
     return (

@@ -20,9 +20,9 @@ function FeedDetailItem({fileUrl, _id, nickname, date, content, title, likeNum, 
 
     const onLikeClick = (e) => {
         if (likeToggle) {
-            axios.delete(`https://api.challenchallen.com/api/like?postId=${_id}`, {withCredentials: true}).then(response => console.log(response))
+            axios.delete(`https://api.challenchallen.com/api/like?postId=${_id}`, {withCredentials: true})
         } else {
-            axios.post(`https://api.challenchallen.com/api/like`, LikeId, {withCredentials: true}).then(response => console.log(response))
+            axios.post(`https://api.challenchallen.com/api/like`, LikeId, {withCredentials: true})
         }
         setLikeToggle(!likeToggle)
     }

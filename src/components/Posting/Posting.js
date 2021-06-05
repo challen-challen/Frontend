@@ -152,7 +152,7 @@ function Posting({match, history}) {
 
         }
     }, [postContent.category, postContent.plan])
-    console.log(postContent)
+
 
     const onCalculate = () => {
         axios.get(`https://api.challenchallen.com/api/calculator?category=${postContent.category}&plan=${postContent.plan}&sparedTime=${min}`, {withCredentials: true})

@@ -37,7 +37,7 @@ function FileUpload({postContent, setPostContent}) {
         }
 
     }
-    console.log(attachment)
+
 
     return (
         <div style={{display: "flex", justifyContent: "space-around", margin: "2vh auto"}}>

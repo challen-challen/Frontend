@@ -18,7 +18,6 @@ function Feed({match}) {
 
     const onChangeSort = (e) => {
         setSort(e.target.value)
-        console.log(e.target.value)
     }
     const category = match.params.category;
 
